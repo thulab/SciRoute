@@ -1,0 +1,177 @@
+{
+  "schema_version": "iotdbfs-hdf5-h00-public/1",
+  "product": "GWOSC GW150914 LOSC 4 kHz V2, 32-second event tutorial files",
+  "license": "CC-BY-4.0",
+  "license_url": "https://gwosc.org/acknowledgement/",
+  "reference": "https://gwosc.org/s/events/GW150914/LOSC_Event_tutorial_GW150914.html",
+  "attribution": "GWOSC; LIGO Scientific Collaboration, Virgo Collaboration and KAGRA. Original files unchanged.",
+  "retrieved_on": "2026-10-01",
+  "files": [
+    {
+      "id": "H1",
+      "filename": "H-H1_LOSC_4_V2-1126259446-32.hdf5",
+      "url": "https://gwosc.org/s/events/GW150914/H-H1_LOSC_4_V2-1126259446-32.hdf5",
+      "sha256": "6e6976e932074a3b4e4a398ed02c62e30fcaa2781811762caea04937133583f6",
+      "size_bytes": 1040592,
+      "dataset": "/strain/Strain",
+      "shape": [
+        131072
+      ],
+      "dtype": "<f8",
+      "chunks": [
+        2048
+      ],
+      "compression": "gzip",
+      "compression_opts": 1,
+      "shuffle": false,
+      "fletcher32": true,
+      "gps_start": 1126259446,
+      "sample_rate_hz": 4096,
+      "selections": [
+        {
+          "id": "first_quarter_second",
+          "start": [
+            0
+          ],
+          "count": [
+            1024
+          ],
+          "sha256": "338a2cb24967c8d5788986843b5fb42f3d4cf8f6632a56da497ddfe3edaa8dd4"
+        },
+        {
+          "id": "chunk_boundary",
+          "start": [
+            2047
+          ],
+          "count": [
+            4
+          ],
+          "sha256": "9f8ad05200634146f52f30bc9bfe61d9b41a7b4d527a97af4dbc12ade2abdf12"
+        },
+        {
+          "id": "event_16_to_18_seconds",
+          "start": [
+            65536
+          ],
+          "count": [
+            8192
+          ],
+          "sha256": "e58a5e1004d826abdf2444a354c5dc997141f516bf9d788148d2c55e4872e6d0"
+        },
+        {
+          "id": "last_segment",
+          "start": [
+            130000
+          ],
+          "count": [
+            1072
+          ],
+          "sha256": "3b51062c1eb50b98cb4f635aa48cdc192e629047e205139dadb0f08d215b168c"
+        },
+        {
+          "id": "full_32_seconds",
+          "start": [
+            0
+          ],
+          "count": [
+            131072
+          ],
+          "sha256": "2afb44a36d1bd7561cdcf704ccd26243978eff9823b3e04a11866e4f626e284b"
+        },
+        {
+          "id": "empty_end",
+          "start": [
+            131072
+          ],
+          "count": [
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "id": "L1",
+      "filename": "L-L1_LOSC_4_V2-1126259446-32.hdf5",
+      "url": "https://gwosc.org/s/events/GW150914/L-L1_LOSC_4_V2-1126259446-32.hdf5",
+      "sha256": "56706e68c811b15548f1d7ed69d7c48d5fcc62aeb21fbaf131355f3cc5c07189",
+      "size_bytes": 1007420,
+      "dataset": "/strain/Strain",
+      "shape": [
+        131072
+      ],
+      "dtype": "<f8",
+      "chunks": [
+        2048
+      ],
+      "compression": "gzip",
+      "compression_opts": 1,
+      "shuffle": false,
+      "fletcher32": true,
+      "gps_start": 1126259446,
+      "sample_rate_hz": 4096,
+      "selections": [
+        {
+          "id": "first_quarter_second",
+          "start": [
+            0
+          ],
+          "count": [
+            1024
+          ],
+          "sha256": "26d3b9cdf259f93b16f901f4756b0e71e7d591ca48e1882be2739d5480a0bdb5"
+        },
+        {
+          "id": "chunk_boundary",
+          "start": [
+            2047
+          ],
+          "count": [
+            4
+          ],
+          "sha256": "ea1725dd25acfcae540d9cd6ebd721273e82191e79794862f3dd4f83945961d0"
+        },
+        {
+          "id": "event_16_to_18_seconds",
+          "start": [
+            65536
+          ],
+          "count": [
+            8192
+          ],
+          "sha256": "6dc34f01cb762a77f72e43ee87d2b2f65ca7781b99b6c08c20cd2340f610b87a"
+        },
+        {
+          "id": "last_segment",
+          "start": [
+            130000
+          ],
+          "count": [
+            1072
+          ],
+          "sha256": "21cd94686a1a37e40f466432d60bb1c6716f5601ba7bee5d556d1d132caf8f3b"
+        },
+        {
+          "id": "full_32_seconds",
+          "start": [
+            0
+          ],
+          "count": [
+            131072
+          ],
+          "sha256": "6777425af4daee88061b1270da035cdd6ee723211f55f3445aa9dea43b2c1ed4"
+        },
+        {
+          "id": "empty_end",
+          "start": [
+            131072
+          ],
+          "count": [
+            0
+          ],
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ]
+}

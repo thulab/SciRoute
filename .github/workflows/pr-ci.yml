@@ -1,0 +1,179 @@
+name: PR CI
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+  merge_group:
+    types: [checks_requested]
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-ci-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  workflow_lint:
+    name: pr-workflow-lint
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install script checker
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y shellcheck
+      - name: Check workflows, scripts, and CI regression tests
+        run: bash ci/lint.sh
+
+  platform_checks:
+    name: pr-platform-packaging
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install script checker
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y shellcheck
+      - name: Check platform configuration and packaging scripts
+        run: bash ci/platform_checks.sh
+
+  dependencies:
+    name: pr-dependencies
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    env:
+      IOTDB_SDK_URL: ${{ vars.IOTDB_SDK_URL }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-toolchain
+      - uses: ./.github/actions/prepare-dependencies
+      - name: Upload dependency diagnostics
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: dependency-logs
+          path: build-ci-dependencies/*.log
+          if-no-files-found: warn
+          retention-days: 14
+
+  linux_ut_coverage:
+    name: pr-linux-ut-coverage
+    needs: dependencies
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-toolchain
+      - uses: ./.github/actions/restore-dependencies
+      - name: Build applications and run unit, smoke, and coverage gates
+        run: python3 ci/run_tests.py coverage --build-dir build-ci
+      - name: Upload test and coverage reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: unit-coverage-reports
+          path: |
+            build-ci/*.log
+            build-ci/*.xml
+            build-ci/*.json
+            build-ci/*.txt
+            build-ci/*.html
+            build-ci/*.css
+            build-ci/*.js
+            build-ci/summary.md
+          if-no-files-found: error
+          retention-days: 14
+
+  linux_sanitizers:
+    name: pr-linux-sanitizers
+    needs: dependencies
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-toolchain
+      - uses: ./.github/actions/restore-dependencies
+      - name: Run ten shuffled sanitizer rounds
+        run: python3 ci/run_tests.py sanitizer --build-dir build-ci-sanitize
+      - name: Upload sanitizer reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sanitizer-reports
+          path: |
+            build-ci-sanitize/*.log
+            build-ci-sanitize/*.xml
+            build-ci-sanitize/toolchain.json
+            build-ci-sanitize/summary.md
+          if-no-files-found: error
+          retention-days: 14
+
+  linux_release_integration:
+    name: pr-linux-release-integration
+    needs: dependencies
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-toolchain
+      - uses: ./.github/actions/restore-dependencies
+      - name: Build Release, test local integrations, and validate installation
+        run: python3 ci/run_tests.py release --build-dir build-ci-release
+      - name: Upload release integration reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-integration-reports
+          path: |
+            build-ci-release/*.log
+            build-ci-release/*.xml
+            build-ci-release/toolchain.json
+            build-ci-release/summary.md
+          if-no-files-found: error
+          retention-days: 14
+
+  ci_required:
+    name: pr-ci-required
+    needs: [workflow_lint, platform_checks, dependencies, linux_ut_coverage, linux_sanitizers, linux_release_integration]
+    if: ${{ always() }}
+    runs-on: ubuntu-22.04
+    timeout-minutes: 3
+    steps:
+      - name: Require every mandatory job to succeed
+        env:
+          LINT_RESULT: ${{ needs.workflow_lint.result }}
+          PLATFORM_RESULT: ${{ needs.platform_checks.result }}
+          DEPENDENCY_RESULT: ${{ needs.dependencies.result }}
+          UNIT_RESULT: ${{ needs.linux_ut_coverage.result }}
+          SANITIZER_RESULT: ${{ needs.linux_sanitizers.result }}
+          RELEASE_RESULT: ${{ needs.linux_release_integration.result }}
+        run: |
+          for result in "$LINT_RESULT" "$PLATFORM_RESULT" "$DEPENDENCY_RESULT" "$UNIT_RESULT" "$SANITIZER_RESULT" "$RELEASE_RESULT"; do
+            if [[ "$result" != success ]]; then
+              echo '::error::Every required CI job must succeed; failed, cancelled, and skipped jobs block merging.'
+              exit 1
+            fi
+          done

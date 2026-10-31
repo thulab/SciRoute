@@ -1,0 +1,8 @@
+work/
+results/*
+!results/acceptance-20261015.json
+!results/v00-acceptance-20261015.json
+!results/v01-acceptance-20261015.json
+!results/v02-acceptance-20261016.json
+!results/v03-acceptance-20261016.json
+!results/v04-acceptance-20261017.json

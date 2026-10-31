@@ -1,0 +1,9 @@
+# HDF5 adapter review: error attribution and lookup cleanup
+
+The reported slice-bound exception sequence is no longer present in the current query core: `validate_query_request` invokes the HDF5 grammar before the adapter constructs its request key. An `Int64` axis bound already returned `TypeMismatch` in the red test. The review still exposed a fragile serializer that assumed only `Float64` or `UInt64`, and the error did not identify the source or field.
+
+The request key now serializes every `LogicalValue` variant using the same lossless scalar encoding as predicates. Slice grammar errors include the axis field and validation operation. Adapter planning and execution errors retain their original code and phase while adding exact source/version and operation. A thrown layout read is classified as `ReadFailure`; unexpected adapter or cursor exceptions are `Internal`. Cursor errors during `next()` also receive source attribution.
+
+The adapter computes its semantic configuration key once. The validated layout directory builds object-ID and hard-link lookup maps after parsing; path resolution and selected-dataset binding use these maps instead of repeated scans. Binding resolves the dataset once and reuses the selected object for descriptors and predicates. This does not change the persisted layout or query result contract.
+
+Verification on the experimental server: 1,345 unit tests passed, including five new error-attribution cases. The [GEOS direct-query rerun](../reports/hdf5-geos-adapter-review-rerun.md) contains four independent 24-query campaigns; every result matches the previous run in case, pass, source, dataset, row count, mask count, value byte count and FNV-1a hash. The small timing differences do not establish a performance benefit for this single-file workload.

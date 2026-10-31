@@ -1,0 +1,8 @@
+/work/
+/data/
+/build/
+/venv/
+/cache/
+__pycache__/
+*.log
+*.tmp

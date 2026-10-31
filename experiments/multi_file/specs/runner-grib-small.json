@@ -1,0 +1,6 @@
+{
+  "protocol": "iotdbfs-multifile-spec/1", "format": "grib",
+  "N": 8, "K": 2, "D": 4, "depth": 2, "seed": 20261013, "tree_width": 4,
+  "payload": {"Ni": 64, "Nj": 64, "bits_per_value": 16, "packing": "grid_simple"},
+  "max_output_bytes": 16777216
+}

@@ -1,0 +1,36 @@
+name: Prepare verified CI dependencies
+description: Restore or build the locked dependency bundle, then verify every file
+runs:
+  using: composite
+  steps:
+    - name: Require the fixed SDK download location
+      shell: bash
+      run: |
+        if [[ -z "${IOTDB_SDK_URL:-}" ]]; then
+          echo '::error::Set repository variable IOTDB_SDK_URL to the HTTPS URL of the SDK archive pinned in ci/dependencies.lock.json. See ci/README.md.'
+          exit 1
+        fi
+    - name: Cache immutable dependency installation
+      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+      with:
+        path: ${{ runner.temp }}/iotdbfs-deps
+        key: deps-v1-${{ runner.os }}-${{ runner.arch }}-gcc11-${{ hashFiles('ci/dependencies.lock.json', 'ci/install_dependencies.py', 'ci/requirements.txt', '.github/actions/setup-toolchain/action.yml') }}
+    - name: Install or verify the locked dependencies
+      shell: bash
+      run: |
+        mkdir -p build-ci-dependencies
+        python3 ci/install_dependencies.py --prefix "$RUNNER_TEMP/iotdbfs-deps" --jobs 4 \
+          2>&1 | tee build-ci-dependencies/install.log
+        python3 ci/activate_dependencies.py --prefix "$RUNNER_TEMP/iotdbfs-deps" \
+          --github-env "$GITHUB_ENV"
+    - name: Package the verified dependency installation
+      shell: bash
+      run: |
+        tar -C "$RUNNER_TEMP/iotdbfs-deps" -czf "$RUNNER_TEMP/ci-dependencies.tar.gz" .
+    - name: Upload dependency bundle for this run
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: ci-dependencies
+        path: ${{ runner.temp }}/ci-dependencies.tar.gz
+        if-no-files-found: error
+        retention-days: 1

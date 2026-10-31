@@ -1,0 +1,21 @@
+name: Set up Linux CI toolchain
+description: Install the project build prerequisites and pinned Python CI tools
+runs:
+  using: composite
+  steps:
+    - name: Install native prerequisites
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends -y \
+          gcc-11 g++-11 make pkg-config libfuse-dev libboost-dev \
+          libaec-dev libopenjp2-7-dev libssl-dev zlib1g-dev libstdc++6 python3-venv
+        echo 'CC=gcc-11' >> "$GITHUB_ENV"
+        echo 'CXX=g++-11' >> "$GITHUB_ENV"
+    - name: Install pinned CI tools
+      shell: bash
+      run: |
+        python3 -m venv "$RUNNER_TEMP/iotdbfs-ci-tools"
+        "$RUNNER_TEMP/iotdbfs-ci-tools/bin/python" -m pip install \
+          --disable-pip-version-check -r ci/requirements.txt
+        echo "$RUNNER_TEMP/iotdbfs-ci-tools/bin" >> "$GITHUB_PATH"

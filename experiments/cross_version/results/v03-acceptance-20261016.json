@@ -1,0 +1,453 @@
+{
+  "account_policy": "existing shared account, controlled single host; no new accounts or cross-host fencing",
+  "binaries": {
+    "iotdb_fs": "5e23a4a6a9b24e91d7d8b0f99227b752668d943d0e5f7c2ebf686130eea2e6f8",
+    "unit_tests": "59a382c8d4ff5c11213aa68fcb46483e86fcfd6ed26b0f6ebbe24bfd07451d91",
+    "v01_store_probe": "e0ce22ddf66675baf8901688cd000b51f6b523ba4b331958f4a46289007f0dd1",
+    "v02_cache_probe": "f3dbc64aed8be252d0047b6522e74a361eca753ca4a5c988e5b6230655eeeab1",
+    "v02_content_probe": "46f1244d793a550ca8cc85ccb16600d5d01f994cb37ad6cc822f0347591dc8ac",
+    "v03_context_probe": "59c24e38a642c5376b4959c6fe0ffc0fa49c24b1e925453ed6407ddc36a87f5e"
+  },
+  "complete": true,
+  "counts": {
+    "compiled_files_unchanged_since_r3": 475,
+    "default_strict_typed_units": 1024,
+    "default_strict_versions": 256,
+    "n128_raw_observations": 540,
+    "new_owner_scientific_versions": 32,
+    "nonroot_permission_checks": 9,
+    "real_backend_context_cases": 11,
+    "source_files": 489,
+    "source_mismatches": 0,
+    "typed_units_after_owner_restart": 128,
+    "typed_units_before_owner_restart": 128,
+    "unit_failures": 0,
+    "unit_suites": 53,
+    "unit_tests": 659
+  },
+  "credentials_recorded": false,
+  "date": "2026-10-16",
+  "default_mode": "strict",
+  "development_base": "d1742e6",
+  "evidence": {
+    "V03-owner/report.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/V03-owner/complete-results/report.json",
+      "sha256": "13487d50b0a4ee6a1909e6543a2f5ff16070fa41cf40f9c179ded30d436aad92"
+    },
+    "V03-owner/startup-receipts.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/V03-owner/startup-receipts.jsonl",
+      "sha256": "36f17ac3f16cd7dac8caa92441c67331fe638254ccb54a40994e243fc48fa744"
+    },
+    "V03-owner/warm-analysis.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/V03-owner/warm-analysis.json",
+      "sha256": "9345cd8afee239e8755f567d2cfb0c53d7642a25abfeaae58c2a54388c73619b"
+    },
+    "ablation-operations.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/control/operations.jsonl",
+      "sha256": "441888715ddf6b0f12b2ad179c23183c5a42a457914b1f673a6118ca97e078c2"
+    },
+    "binaries.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/binaries-r3.json",
+      "sha256": "fe31d75d814cb6b5bd21e75432d6b6988b6f48818f27db196f6023b1d8b2cad7"
+    },
+    "build.log": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/build-r3.log",
+      "sha256": "99ff047099c1a0222f2a12779a2793c6cedd69841fa87820d94c192180ccc4d3"
+    },
+    "context-operations.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/context/control/operations.jsonl",
+      "sha256": "600d8ff4f5cc873bcac57a6f12fc14b98e14e9c902b3480c6451c96d31412c70"
+    },
+    "default-strict.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-default-strict-20261016/publication.json",
+      "sha256": "91234424d512e372b66deb366c3937b7ecd95503310a361eeb18f864e6a24810"
+    },
+    "driver.py": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03_accept_r4.py",
+      "sha256": "38b2121d0ea6b3bd8c9e28e047584db79b79852942c9b8d94c2a05393e0ac76a"
+    },
+    "harness-fix-r4.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-harness-fix-r4.json",
+      "sha256": "cbdd4bf4ec2382e9a7066136906ac35da0b27fd040339e8346680c81c6b8544e"
+    },
+    "legacy-A-control/report.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/legacy-A-control/complete-results/report.json",
+      "sha256": "5db8a47fa54095cf0f141b1cc645df9692f2292170525d635996f3c6301f39b5"
+    },
+    "legacy-A-control/startup-receipts.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/legacy-A-control/startup-receipts.jsonl",
+      "sha256": "8b7d8e352b988d82f95a691041a5abad62fce850d86725f2b0dd87ee8aa4a3d9"
+    },
+    "legacy-A-control/warm-analysis.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/legacy-A-control/warm-analysis.json",
+      "sha256": "bbca66d7f273ec6bd6a26edb2f47bbf4823f9c5382ab33650d60eb03c41842d1"
+    },
+    "live-operations.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/correctness/control/operations.jsonl",
+      "sha256": "aafc8e54e075692cd31f75a27e63f9fc4a52548abf0fa034fcfede83c9465a99"
+    },
+    "pinnedV02-owner/report.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/pinnedV02-owner/complete-results/report.json",
+      "sha256": "267de5f0e4a42a807803e034cd5fdb76b8a1fbc505e4eff26e13389dedf118f1"
+    },
+    "pinnedV02-owner/startup-receipts.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/pinnedV02-owner/startup-receipts.jsonl",
+      "sha256": "18373f45228f57e867ec3b9fcb8e4fea67a0aaa4665e877b835382f702b18275"
+    },
+    "pinnedV02-owner/warm-analysis.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/n128/pinnedV02-owner/warm-analysis.json",
+      "sha256": "827b54080fcca3caa63ff5a3bf663919b18738e7c96a650b3394da83c67a2f75"
+    },
+    "post-restore-script.py": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03_post_restore.py",
+      "sha256": "345e69911c1edf1b44c62881aae0158ec4af5624f704c2fd137acd5ddb9c7fae"
+    },
+    "prepare-operations.jsonl": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-n128-prepare-20261016/control/operations.jsonl",
+      "sha256": "779c17858076a7bf56cfcd315710c067b8a6cc652296598de7f084604c3b77a9"
+    },
+    "r3-source-receipt.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/source-receipt-r3.json",
+      "sha256": "a1888d2471d2b759666fd0bbe1596f64e027fc65e638cdcd3ac9fcc8b3e00325"
+    },
+    "source-manifest.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/v03-final-local-source.json",
+      "sha256": "b96394500b22308ff95086b3762470cdfbec20540956f2550fe5edfb35533539"
+    },
+    "source-test-binding.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/final-source-test-binding.json",
+      "sha256": "0bb01cd387aa15abbc677aaaa21c92fcbf87a5cbffb667f00f07f4dd9db08798"
+    },
+    "test-command.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/test-command-r3.json",
+      "sha256": "1aee40fd7ec9620ad397352c1f58c8b6792f8417140f4c9f9e9d89ef8e4e230f"
+    },
+    "tests.log": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/acceptance-tests-r3.log",
+      "sha256": "2f7f16e60ede6de9be21cfdc003875fa3db31cd89c549412566da6b30b8cc6b4"
+    },
+    "tests.xml": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-verification-20261016/acceptance-tests-r3.xml",
+      "sha256": "601b08a885e70314e31e0f1a30017932db915631c3d8e56205825fca4e3df4e0"
+    },
+    "v03-context-20261016.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-context-20261016.json",
+      "sha256": "69dd764d7f9ef20ff87d468248738ecbeec6a4bb7f7f64fdc4f8870f056eb0d2"
+    },
+    "v03-live-r4-20261016.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-live-r4-20261016.json",
+      "sha256": "0b7b9d63efaab99b314fbf985e2842c607d81a417666a23e1ad879a52962e432"
+    },
+    "v03-n128-ablation-20261016.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-n128-ablation-20261016.json",
+      "sha256": "3e3e7ab9943eca46ee15ec29f83b24ddae9bda2b4b706422dc233f8d749d8dc3"
+    },
+    "v03-n128-prepare-20261016.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-n128-prepare-20261016.json",
+      "sha256": "9a50a75f8b3871263fd7ec30480c11c1643f3ecb8c6f25eca7a366f11032f504"
+    },
+    "v03-post-restore-20261016.json": {
+      "remote_path": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/v03-post-restore-20261016.json",
+      "sha256": "22a79b21c39883979df5e8f9c634ffd172d368d50b64a366a109b16b75b7c13f"
+    }
+  },
+  "failure_provenance": [
+    "initial stale-worktree import failure before service operations",
+    "r3 permission oracle blocked by private host parent; r4 test mount surface fixed, production binary unchanged",
+    "shared worker metadata-fee regression caught locally and fixed before r3 frozen build"
+  ],
+  "limitations": [
+    "concurrency: deterministic Owner hooks/frontend mocks plus real backend cases, not all real FUSE operation/window combinations",
+    "native context probe HDF5; GRIB warm discovery verified by N128 profiles",
+    "fresh process cold startup; database/OS caches not flushed",
+    "logical metadata budget and cache ownership limits do not cap process RSS",
+    "V03 bundle comparison does not isolate each cache/history component",
+    "DataNode crash evidence inherited from V00/V02; this run adds owner restart",
+    "fully preemptible SDK deadline, payload sharing, physical GC and explicit migration remain future phases"
+  ],
+  "n128": {
+    "arm_order": [
+      "legacy-A-control",
+      "pinnedV02-owner",
+      "V03-owner"
+    ],
+    "arms": {
+      "V03-owner": {
+        "actual_binary_sha256": "5e23a4a6a9b24e91d7d8b0f99227b752668d943d0e5f7c2ebf686130eea2e6f8",
+        "client_discover_values_ms": {
+          "grib": {
+            "discovery": 33.428187,
+            "total": 39.10175,
+            "value": 5.77785
+          },
+          "hdf5": {
+            "discovery": 12.96215,
+            "total": 21.5654555,
+            "value": 8.3660235
+          }
+        },
+        "discovery_evidence": {
+          "grib": {
+            "all_observed_sdk_and_store_queries_zero": true,
+            "context_instrumented_requests": 12,
+            "daemon_store_instrumented_requests": 12,
+            "independent_manifest_marker_calls_all_zero": true,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          },
+          "hdf5": {
+            "all_observed_sdk_and_store_queries_zero": true,
+            "context_instrumented_requests": 12,
+            "daemon_store_instrumented_requests": 12,
+            "independent_manifest_marker_calls_all_zero": true,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          }
+        },
+        "postrun_daemon_rss_kib_range": [
+          38736,
+          58936
+        ],
+        "records": 180,
+        "startup_seconds": {
+          "max": 135.123081734,
+          "median": 104.981049991,
+          "min": 102.959159816,
+          "n": 7
+        },
+        "warm_samples_per_format_phase": 12
+      },
+      "legacy-A-control": {
+        "actual_binary_sha256": "e1460750fbee36070786801355d8e241137a69a239fa2940f34ede90f12e7db1",
+        "client_discover_values_ms": {
+          "grib": {
+            "discovery": 54.546417,
+            "total": 68.576998,
+            "value": 13.042997
+          },
+          "hdf5": {
+            "discovery": 121.1422455,
+            "total": 148.615696,
+            "value": 24.7459585
+          }
+        },
+        "discovery_evidence": {
+          "grib": {
+            "all_observed_sdk_and_store_queries_zero": null,
+            "context_instrumented_requests": 0,
+            "daemon_store_instrumented_requests": 0,
+            "independent_manifest_marker_calls_all_zero": null,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          },
+          "hdf5": {
+            "all_observed_sdk_and_store_queries_zero": null,
+            "context_instrumented_requests": 0,
+            "daemon_store_instrumented_requests": 0,
+            "independent_manifest_marker_calls_all_zero": null,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          }
+        },
+        "postrun_daemon_rss_kib_range": [
+          29560,
+          49696
+        ],
+        "records": 180,
+        "startup_seconds": {
+          "max": 1.267128998,
+          "median": 0.922926783,
+          "min": 0.778639891,
+          "n": 7
+        },
+        "warm_samples_per_format_phase": 12
+      },
+      "pinnedV02-owner": {
+        "actual_binary_sha256": "f61c283e16ff01eafcab6698714211b3b476c6380dc3d88d0e33bb41ae859bdc",
+        "client_discover_values_ms": {
+          "grib": {
+            "discovery": 14574.8051285,
+            "total": 21863.0074685,
+            "value": 7343.0009085
+          },
+          "hdf5": {
+            "discovery": 8026.623136,
+            "total": 22470.964499,
+            "value": 14454.9195545
+          }
+        },
+        "discovery_evidence": {
+          "grib": {
+            "all_observed_sdk_and_store_queries_zero": null,
+            "context_instrumented_requests": 0,
+            "daemon_store_instrumented_requests": 0,
+            "independent_manifest_marker_calls_all_zero": null,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          },
+          "hdf5": {
+            "all_observed_sdk_and_store_queries_zero": null,
+            "context_instrumented_requests": 0,
+            "daemon_store_instrumented_requests": 0,
+            "independent_manifest_marker_calls_all_zero": null,
+            "requests_tested": 12,
+            "scope": "discovery request profiles only; these statements do not assert zero payload/value SQL"
+          }
+        },
+        "postrun_daemon_rss_kib_range": [
+          34524,
+          48656
+        ],
+        "records": 180,
+        "startup_seconds": {
+          "max": 160.01079336,
+          "median": 124.108653142,
+          "min": 101.664963267,
+          "n": 7
+        },
+        "warm_samples_per_format_phase": 12
+      }
+    },
+    "clock": "unchanged frozen client total_ns; 12 repeat>0 samples per format/phase",
+    "comparison": "V02/V03 share newly published owner exact versions; historical A uses legacy versions/layout",
+    "controls": {
+      "D": 4,
+      "K": 2,
+      "N": 128,
+      "depth": 2,
+      "seed": 20261013,
+      "tree_width": 4
+    },
+    "fixed_A_ms": {
+      "grib": 57.404444,
+      "hdf5": 106.811351
+    },
+    "missing_V02_Store_metrics": "null/unavailable; legacy query_calls=0 is not proof of Store SQL=0",
+    "native_sha256": "49f7f7127e6a7c73bab304f9ec230f46e540ebf26b3d3e40fed05b3a6e398864",
+    "performance_gate_passed": true,
+    "query_zero_scope": "discovery request profiles in this stable warm workload; no general payload SQL claim",
+    "runner_sha256": "be728432fc2b01f810af167a5d07308211a50cf980a478a0dfcf4e229ce65155",
+    "sdk_count_is_wire_rpc": false,
+    "statistics": "fixed arm order; no randomized/interleaved A/B or statistical significance claim"
+  },
+  "original_service": {
+    "config_sha256": "ddd678e310f4a48048593333bcf84b9896ab9d7d705d08c642f040723f423728",
+    "confignode_pid": 2645019,
+    "datanode_pid_at_end": 2386091,
+    "effective_settings": {
+      "enable_partial_insert": true,
+      "wal_mode": "ASYNC"
+    },
+    "isolated_instances_started": 0,
+    "license_and_node_identity_files_preserved": true,
+    "new_accounts_created": 0,
+    "owned_mounts_remaining": 0,
+    "owner_journal_unchanged_after_rejected_activation": true,
+    "owner_rejected_under_original_async": true,
+    "restored": true
+  },
+  "owner": {
+    "journal": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/work/v03-acceptance-r4-20261016/correctness/owner",
+    "objects": {
+      "by_type": {
+        "catalog-chunk": {
+          "rows": 1,
+          "value_bytes": 1774
+        },
+        "catalog-index": {
+          "rows": 1,
+          "value_bytes": 117
+        },
+        "catalog-object": {
+          "rows": 1,
+          "value_bytes": 181
+        },
+        "catalog-page": {
+          "rows": 265,
+          "value_bytes": 381764
+        },
+        "catalog-record": {
+          "rows": 68,
+          "value_bytes": 23588
+        },
+        "catalog-root": {
+          "rows": 67,
+          "value_bytes": 9016
+        },
+        "commit": {
+          "rows": 67,
+          "value_bytes": 20938
+        },
+        "file-descriptor": {
+          "rows": 3,
+          "value_bytes": 767
+        },
+        "format-proof": {
+          "rows": 3,
+          "value_bytes": 845
+        },
+        "layout-chunk": {
+          "rows": 2,
+          "value_bytes": 6378
+        },
+        "layout-index": {
+          "rows": 2,
+          "value_bytes": 234
+        },
+        "layout-object": {
+          "rows": 3,
+          "value_bytes": 479
+        },
+        "metadata-chunk": {
+          "rows": 3,
+          "value_bytes": 2514
+        },
+        "metadata-index": {
+          "rows": 3,
+          "value_bytes": 351
+        },
+        "metadata-object": {
+          "rows": 3,
+          "value_bytes": 543
+        },
+        "version-seal": {
+          "rows": 64,
+          "value_bytes": 25616
+        }
+      },
+      "command": "stats",
+      "completed": true,
+      "measurement": "stored_object_blob_value_bytes_including_unreachable_objects",
+      "prefix": "vd_v03_correctness_f735da5f12bb41d9",
+      "row_limit": 65536,
+      "total_rows": 556,
+      "total_value_bytes": 475105,
+      "value_byte_limit": 268435456
+    },
+    "old_v02_head_and_journal_unchanged": true,
+    "populated_memory": {
+      "VmHWM_kib": 66032,
+      "VmRSS_kib": 66032
+    },
+    "prefix": "vd_v03_correctness_f735da5f12bb41d9",
+    "restart_seconds": 14.593506114,
+    "restarted_memory": {
+      "VmHWM_kib": 43720,
+      "VmRSS_kib": 43720
+    }
+  },
+  "persistent_profile_changed": false,
+  "phase": "V03",
+  "protocol": "iotdbfs-v03-acceptance-summary/1",
+  "r3_source_archive": {
+    "files": 817,
+    "post_build_changes": [
+      "v03_validation.py permission mount harness only; separate receipt",
+      "version-directory-v03-runtime.json added explanatory contract"
+    ],
+    "production_and_test_sources_changed": false,
+    "sha256": "4b869634551fb68270c5036bce358677f94e6d1130f84683fffbc12d98ca8c36"
+  },
+  "runtime_contract_sha256": "5c3c46dd0fdfaede0231a976decb4032d1f43bf2642457c196e32b45fab6a93b",
+  "scope": "ReadContext, frozen all-candidate revalidation, leases, request metadata budget, writer/admission split and fixed N128 warm discovery; independent per-version payload; no GC"
+}

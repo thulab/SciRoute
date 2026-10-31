@@ -1,0 +1,72 @@
+{
+  "protocol": "iotdbfs-cross-version-v00-acceptance/1",
+  "date": "2026-10-15",
+  "complete": true,
+  "scope": "V00 boundary freeze and baseline; V01-V06 production protocol not implemented or enabled",
+  "decisions_confirmed": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5"
+  ],
+  "unit_tests": {
+    "core": 94,
+    "dependencies": 61,
+    "new_regressions": 5,
+    "failures": 0
+  },
+  "live_permissions": {
+    "checks": 9,
+    "ok": true
+  },
+  "head": {
+    "full_cases": 10,
+    "effective_configuration_crash_cases": 1,
+    "concurrent_writes": 200,
+    "concurrent_reads": [
+      134,
+      137
+    ],
+    "torn_values": 0,
+    "database": "v00_head_aaa2a839922741a8",
+    "original_service_restored": true,
+    "restored_effective_configuration": {
+      "wal_mode": "ASYNC",
+      "enable_partial_insert": true
+    },
+    "experimental_effective_configuration": {
+      "wal_mode": "SYNC",
+      "enable_partial_insert": false
+    },
+    "license_and_node_identity_preserved": true
+  },
+  "post_recovery": {
+    "logical_prefix": "/cross-version-1b723c3e5e464290",
+    "full_file_versions": 256,
+    "typed_units": 1024,
+    "ok": true
+  },
+  "fixed_baseline_ms": {
+    "hdf5": 106.811351,
+    "grib": 57.404444,
+    "remeasured_in_v00": false
+  },
+  "remote_root": "root@192.168.99.49:/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version",
+  "evidence_sha256": {
+    "work/v00-unit-20261015/independent-status.json": "a9277f527a6d8a49041db4a416472e17fa8e22288b7253f325f8e2e7b299cb47",
+    "work/v00-unit-20261015/dependency-status.json": "1b660eac829a66543bd067ad333b0574033d6f177f2df542a4f7d5dc6eac7c38",
+    "results/v00-permissions-20261015-r2.json": "319c627740a3b8fd91180702eae07255be33d9a3d9209b0db97ee195cc66e039",
+    "results/v00-head-existing-20261015-r2.json": "bda562c0dcc211d83dccf9de58d5a0c974e7bbae20f844a60c8b5509e752dfe7",
+    "results/v00-head-effective-20261015-r3.json": "82246495949f089374c4661d0cc223aa07625c66bdd1772ae5efa7a48af84c14",
+    "work/v00-head-existing-20261015-r2/operations.jsonl": "318dbeac819db2ec6f2c8dc715a82a1e3844249f1ff01a0371d6c8af066f6217",
+    "work/v00-head-effective-20261015-r3/operations.jsonl": "de793f76906a186e8208633d45552fdadea3e7975d8d3fee27ac7ada9809b24c",
+    "work/v00-head-existing-20261015-r2/bytecode-wal-evidence.json": "a034caac8b49f8c6a8510039656064881663452d7d2ece3649f0f6cfe487f42b",
+    "work/v00-head-effective-20261015-r2/region-diagnostic.json": "fe5057867d15759166bb2daaf67213439cbbfecc798f5a7f71b4dc62f318bdb1",
+    "results/v00-final-recovery-20261015/publication.json": "fb6b98f22888c50dfcf758e2cd92caf8d2dc5660059f76c0a3449b84e16d5bdb"
+  },
+  "limits_spec_sha256": "bd6057d2a53144d303913b8948667dd9b95c1666a631e33d9f8c5ac4f720db8f",
+  "limits": "single owner, process-crash experiment; no multi-writer CAS, power-loss or full new-protocol proof",
+  "resource_observation": "new test DB SchemaRegion allocation exceeded direct-buffer budget; subsequent probe reused existing test DB with fresh tag; no memory increase",
+  "failure_records_retained": true
+}

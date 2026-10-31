@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.13)
+project(SingleFileGribNativeBaseline LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(ECCODES REQUIRED eccodes>=2.34)
+# Resolve actual installed files. Some distribution .pc files advertise an
+# include prefix which does not exist; do not propagate that into a target.
+find_path(ECCODES_NATIVE_INCLUDE_DIR eccodes.h HINTS ${ECCODES_INCLUDE_DIRS})
+find_library(ECCODES_NATIVE_LIBRARY eccodes HINTS ${ECCODES_LIBRARY_DIRS})
+if(NOT ECCODES_NATIVE_INCLUDE_DIR OR NOT ECCODES_NATIVE_LIBRARY)
+  message(FATAL_ERROR "Native baseline requires installed ecCodes headers and library")
+endif()
+find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+add_executable(grib_native_probe ../grib_native_probe.cpp)
+target_include_directories(grib_native_probe PRIVATE ${ECCODES_NATIVE_INCLUDE_DIR})
+target_link_libraries(grib_native_probe PRIVATE ${ECCODES_NATIVE_LIBRARY} OpenSSL::Crypto)

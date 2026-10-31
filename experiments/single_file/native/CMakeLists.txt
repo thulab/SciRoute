@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.13)
+project(SingleFileNativeBaseline LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(HDF5 1.14.4 EXACT CONFIG REQUIRED COMPONENTS C shared)
+find_package(OpenSSL REQUIRED COMPONENTS Crypto)
+if(NOT TARGET hdf5-shared OR NOT HDF5_ENABLE_THREADSAFE OR
+   HDF5_ENABLE_PARALLEL OR NOT HDF5_ENABLE_Z_LIB_SUPPORT)
+  message(FATAL_ERROR "Baseline requires thread-safe serial shared HDF5 1.14.4 with DEFLATE")
+endif()
+add_executable(native_probe native_probe.cpp)
+target_link_libraries(native_probe PRIVATE hdf5-shared OpenSSL::Crypto)
+add_subdirectory(grib)

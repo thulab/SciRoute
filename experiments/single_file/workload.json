@@ -1,0 +1,22 @@
+{
+  "protocol": "iotdbfs-single-file-hdf5-workload/1",
+  "classification": "synthetic-controlled; not a public GEOS dataset",
+  "required_hdf5_version": "1.14.4",
+  "seed": 20261012,
+  "dataset": "/T",
+  "dtype": "<f4",
+  "spatial_shape": [728, 1152],
+  "chunks": [1, 1, 91, 144],
+  "filters": {"shuffle": true, "compression": "gzip", "compression_opts": 1, "fletcher32": false},
+  "tiers": {
+    "small": {"time_count": 2, "minimum_file_bytes": 1, "maximum_file_bytes": 10485760},
+    "medium": {"time_count": 160, "minimum_file_bytes": 322122548, "maximum_file_bytes": 751619276},
+    "large": {"time_count": 1024, "minimum_file_bytes": 2147483648, "maximum_file_bytes": null}
+  },
+  "cases": {
+    "point": {"origin": [1, 0, 95, 150], "shape": [1, 1, 1, 1]},
+    "small_roi": {"origin": [0, 0, 10, 16], "shape": [2, 1, 28, 36]},
+    "cross_chunk": {"origin": [0, 0, 88, 140], "shape": [2, 1, 8, 12]}
+  },
+  "attributes": {"experiment": "iotdbfs-single-file-controlled/1", "value_view": "physical-ordinal", "data_origin": "synthetic-finite-float32-bit-patterns"}
+}

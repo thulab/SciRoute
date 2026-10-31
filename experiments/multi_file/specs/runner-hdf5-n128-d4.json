@@ -1,0 +1,27 @@
+{
+  "protocol": "iotdbfs-multifile-spec/1",
+  "format": "hdf5",
+  "N": 128,
+  "K": 2,
+  "D": 4,
+  "depth": 2,
+  "seed": 20261013,
+  "tree_width": 4,
+  "payload": {
+    "shape": [
+      1,
+      1,
+      64,
+      64
+    ],
+    "chunks": [
+      1,
+      1,
+      32,
+      32
+    ],
+    "gzip_level": 1,
+    "shuffle": true
+  },
+  "max_output_bytes": 67108864
+}

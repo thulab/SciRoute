@@ -1,0 +1,147 @@
+{
+  "acceptance": {
+    "full_file_versions_verified": 256,
+    "latest_queries": [
+      {
+        "format": "grib",
+        "paths": 8,
+        "predicate": false,
+        "rows": 32,
+        "scenario": "identical"
+      },
+      {
+        "format": "grib",
+        "paths": 2,
+        "predicate": true,
+        "rows": 2,
+        "scenario": "identical"
+      },
+      {
+        "format": "hdf5",
+        "paths": 8,
+        "predicate": false,
+        "rows": 32,
+        "scenario": "identical"
+      },
+      {
+        "format": "hdf5",
+        "paths": 2,
+        "predicate": true,
+        "rows": 2,
+        "scenario": "identical"
+      },
+      {
+        "format": "grib",
+        "paths": 8,
+        "predicate": false,
+        "rows": 32,
+        "scenario": "single_unit"
+      },
+      {
+        "format": "grib",
+        "paths": 2,
+        "predicate": true,
+        "rows": 2,
+        "scenario": "single_unit"
+      },
+      {
+        "format": "hdf5",
+        "paths": 8,
+        "predicate": false,
+        "rows": 32,
+        "scenario": "single_unit"
+      },
+      {
+        "format": "hdf5",
+        "paths": 2,
+        "predicate": true,
+        "rows": 2,
+        "scenario": "single_unit"
+      }
+    ],
+    "restart": true,
+    "typed_units_verified": 1024
+  },
+  "all_scientific_versions_per_path": 8,
+  "code_sha256": {
+    "corpus.py": "e4e5b5b82f1eff0048402a250c3ec6ec727ae774b942f4ddcef3e8c56ad0e718",
+    "publish.py": "987ce57b3f43cc31e175eb50d9acaba9d146fa6f4c3e7c7170961065ce283237",
+    "server.sh": "6f10f493be9b8a46a1f0390b04ce475855f973bc605548ced10cceaaf9677072",
+    "specs/pilot.json": "3252c50df312d8c20ae244dd53c7b8e66aeacfcf136ab79c83bfefa944e795b5",
+    "test_corpus.py": "14b85e2b4617e2b6f4245dc820729f162767b40de5ecfcafb0afc4e6df44e2b0"
+  },
+  "complete": true,
+  "controls": {
+    "D": 4,
+    "K": 2,
+    "N": 8,
+    "depth": 2,
+    "query": {
+      "level": 500,
+      "shortName": "t",
+      "step": 0,
+      "typeOfLevel": "isobaricInhPa",
+      "validityDate": 20261013,
+      "validityTime": 0
+    },
+    "seed": 20261013,
+    "tree_width": 4
+  },
+  "corpus_manifest_sha256": "d1cfe9d9347dfd7ea3016ac9d56ae83325359beba2c51dfe864a66e10fa0984c",
+  "daemon_sha256": "f4c4786a949474fc4129348546983f9e869417991eb10e16fad5ff7e667ba75e",
+  "database": "h09probe1790939889dbfc1f",
+  "date": "2026-10-15",
+  "environment": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/multi_file/work/runner-20261013/environment.json",
+  "formats": [
+    "grib",
+    "hdf5"
+  ],
+  "input_storage": {
+    "base_files_referenced_without_copy": 16,
+    "logical_version_raw_bytes": 15175168,
+    "new_files": 112,
+    "new_raw_allocated_bytes": 6881280,
+    "new_raw_bytes": 6639136,
+    "scope": "input files only; excludes manifest/directory metadata and actual IoTDB storage; not a compression ratio"
+  },
+  "logical_prefix": "/cross-version-1b723c3e5e464290",
+  "notes": [
+    "8 scientific versions per path; initial empty byte_passthrough creation versions are excluded by format filtering",
+    "Preparation and acceptance warm OS pages; no query-performance or compression result is claimed",
+    "Existing multi-file raw files and published baseline paths retained; new data lives under the cross-version prefix"
+  ],
+  "protocol": "iotdbfs-cross-version-acceptance/1",
+  "publication_report": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version/results/pilot-20261015/publication.json",
+  "publication_report_sha256": "fb6b98f22888c50dfcf758e2cd92caf8d2dc5660059f76c0a3449b84e16d5bdb",
+  "raw_post_audit": {
+    "local_files": 112,
+    "logical_raw_bytes": 15175168,
+    "manifest_sha256": "d1cfe9d9347dfd7ea3016ac9d56ae83325359beba2c51dfe864a66e10fa0984c",
+    "new_raw_bytes": 6639136,
+    "verified": true,
+    "version_bindings": 256
+  },
+  "recovery": {
+    "cause": "initial relative mount path check failed on GRIB IPC after fsync; normalize paths and reconcile exact history",
+    "unrecorded_publications_reconciled_without_rewriting": 1
+  },
+  "report_identity": "c43c89564dc7a6bca9786121fbda1c90592c78e3e96e39844e0c9f6216c29641",
+  "root": "/data_01/zzy/iotdb-fs-exp/IoTDB-FS-C/experiments/cross_version",
+  "server": "root@192.168.99.49",
+  "spec": {
+    "max_new_raw_bytes": 16777216,
+    "protocol": "iotdbfs-cross-version-spec/1",
+    "scenarios": [
+      "identical",
+      "single_unit"
+    ],
+    "versions": 8
+  },
+  "stable_paths": 32,
+  "tests": {
+    "command": "env -u LD_LIBRARY_PATH -u PYTHONPATH HDF5_PLUGIN_PRELOAD=:: ../single_file/work/session-20261012/venv/bin/python -m unittest test_corpus -v",
+    "passed": 10,
+    "seconds": 7.057,
+    "skipped": 0
+  }
+}

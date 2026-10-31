@@ -1,0 +1,175 @@
+{
+  "protocol": "iotdbfs-route3-hdf5-spec/1",
+  "approved_date": "2026-10-18",
+  "research_question": "At fixed selective outputs, can production cross-file discovery combined with native HDF5 reading beat native scanning or a general native metadata index as N and stored V grow?",
+  "hypotheses": [
+    "Repeated native per-file HDF5 metadata opens and attribute reads dominate unindexed discovery as N grows.",
+    "A general persistent FS index may already eliminate that bottleneck and remain faster than IoTDB-FS.",
+    "Native HDF5 after production discovery reduces typed materialization/IPC costs, but may not remove discovery/admission costs.",
+    "Stored V can increase owner snapshot work even when Latest or a bounded historical window fixes output size."
+  ],
+  "D": 4,
+  "K": 2,
+  "dataset_shape": [
+    1,
+    1,
+    128,
+    128
+  ],
+  "chunk_shape": [
+    1,
+    1,
+    32,
+    32
+  ],
+  "roi_shape": [
+    1,
+    1,
+    64,
+    64
+  ],
+  "roi_origins": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      16,
+      16
+    ]
+  ],
+  "predicate": {
+    "shortName": "t",
+    "typeOfLevel": "isobaricInhPa",
+    "level": 850,
+    "step": 0,
+    "validityDate": 20260101,
+    "validityTime": 0
+  },
+  "version_selection": [
+    "Latest",
+    "one interior published round using actual Between timestamp fence",
+    "two interior published rounds using actual Between timestamp fence; N <=512"
+  ],
+  "V1_selections": [
+    "Latest"
+  ],
+  "arms": [
+    "FS-scan",
+    "FS-index",
+    "catalog-native-local",
+    "catalog-native-fuse",
+    "typed"
+  ],
+  "FS_scan_scope": "General version catalog prunes caller timestamp range before native HDF5 metadata inspection; no forced all-history scan or oracle-selected filenames",
+  "FS_index_scope": "One general SQLite catalog per immutable N/V snapshot, prepared queries, predicate/version/latest indexes, matched source stat validation, native HDF5 hyperslabs",
+  "native_reader": {
+    "hdf5": "1.14.4",
+    "compiler": "Release -O3 -DNDEBUG",
+    "max_file_handles": 8,
+    "max_dataset_handles": 8,
+    "metadata_cache_bytes_per_file": 2097152,
+    "raw_chunk_cache_bytes_per_dataset": 262144
+  },
+  "production": {
+    "binary": "frozen ordinary V04 r3, HDF5 implementation unchanged by the subsequent GRIB cache fix",
+    "catalog_mode": "substructure-index",
+    "frontend_registration_capacity": 8192,
+    "max_sources": 1024,
+    "metadata_request_bytes": 67108864,
+    "payload_request_bytes": 1073741824,
+    "extent_limit": 65536,
+    "max_namespace_scan_records": 65536
+  },
+  "publication": "Real ordinary FUSE write/fsync/close; round-major; actual per-file physical versions recorded; empty O_TRUNC snapshots retained; source SHA independently verified; no metadata-only clone",
+  "FS_history": "Full allocated independent regular version files; no sparse files, hardlinks or reflinks; same immutable files serve as ingestion input and FS/native-local baseline",
+  "main_campaigns": 5,
+  "main_repeats": 5,
+  "arm_order": "Rotate five arms across five temporal campaigns",
+  "first_observation": "repeat0 per group/campaign retained separately; not claimed cold; contexts and OS caches can remain warm",
+  "timing": "Complete client-owned Float32 values and uint8 validity arrays; includes actual discovery and read/transport/copy path; profile waits and independent oracle hashing excluded for all arms",
+  "pipeline_scope": "Equivalent observable owned outputs, different real pipelines: native ctypes writes into client-owned arrays, typed path includes server IPC and owned client copy",
+  "separate_costs": [
+    "raw generation and allocation",
+    "full normal publication",
+    "version binding/full SHA",
+    "general version catalog and native index construction",
+    "mount/recovery",
+    "native retained cache/index bytes",
+    "original-service control/restoration"
+  ],
+  "interpretation": "Report all arms and campaigns, absolute latency, increments and ratios; no pooled-repeat significance claim or winner-only selection; a win over FS-scan alone does not establish superiority over FS-index",
+  "pilot": {
+    "N": 8,
+    "V": 2,
+    "campaigns": 1,
+    "repeats": 2,
+    "role": "Functional five-path/ROI/oracle and actual preparation-cost validation, not a scale-performance conclusion"
+  },
+  "service": "Authorized original database, shared existing account and unchanged license; original SYNC control window restored in finally; no isolated instance or new activation",
+  "original_approved_scope": {
+    "main_N": [
+      128,
+      512
+    ],
+    "main_V_milestones": [
+      1,
+      8,
+      32
+    ],
+    "supplement_N": 1024,
+    "supplement_versions": "Latest and one-round historical window only; select largest feasible stored V under real preparation costs and unchanged limits"
+  },
+  "scope_revision": {
+    "approval": "User: 先做分层验证，再决定全量V32（推荐）",
+    "reason": "Pilot normal publication cost; full original V32 preparation at least approximately 15 hours at initial rate",
+    "real_database_cases": [
+      {
+        "N": 128,
+        "V": [
+          1,
+          8
+        ]
+      },
+      {
+        "N": 512,
+        "V": [
+          1
+        ]
+      },
+      {
+        "N": 1024,
+        "V": [
+          1
+        ]
+      }
+    ],
+    "native_FS_only_cases": {
+      "N": [
+        512,
+        1024
+      ],
+      "V": [
+        1,
+        8,
+        32
+      ],
+      "master": "N1024V32 complete independent files; file_id<N is declared general catalog universe, not oracle selection",
+      "versions": "FS ordinal versions, not database physical timestamps",
+      "selections": "Latest; interior one and two rounds",
+      "arms": [
+        "FS-scan",
+        "FS-index"
+      ],
+      "production_source_cap_applies": false,
+      "N1024_two_round_sources": 2048,
+      "source_cap_interpretation": "Native FS-only mechanism point outside production1024source cap; not compared as an executable supported IoTDB query"
+    },
+    "interpretation": "Native-FS-only large-V observations are mechanism studies, never IoTDB-FS large-V measurements; full real V32 deferred pending layered results"
+  },
+  "service_control": "route3_control: TERM/HUP deferred through stop/start/settings critical sections; actual PID/identity/protected/config/effective-settings verification required for restoration; SIGKILL/host-loss needs external recovery"
+}

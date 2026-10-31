@@ -1,0 +1,3 @@
+# Independent Python oracle; actual bundled HDF5 is recorded at runtime.
+h5py==3.12.1
+numpy==2.1.3

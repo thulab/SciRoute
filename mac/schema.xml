@@ -1,0 +1,17 @@
+<schema version="1.0">
+  <attributes>
+    <attribute name="com_iotdbfs_shortName" type="CFString"/>
+    <attribute name="com_iotdbfs_globalDomain" type="CFString"/>
+    <attribute name="com_iotdbfs_numberOfDataPoints" type="CFNumber"/>
+  </attributes>
+  <allattrs>
+    <attribute name="com_iotdbfs_shortName"/>
+    <attribute name="com_iotdbfs_globalDomain"/>
+    <attribute name="com_iotdbfs_numberOfDataPoints"/>
+  </allattrs>
+  <displayattrs>
+    <attribute name="com_iotdbfs_shortName"/>
+    <attribute name="com_iotdbfs_globalDomain"/>
+    <attribute name="com_iotdbfs_numberOfDataPoints"/>
+  </displayattrs>
+</schema>

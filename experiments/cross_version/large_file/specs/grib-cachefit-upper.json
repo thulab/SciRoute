@@ -1,0 +1,12 @@
+{
+  "protocol": "iotdbfs-grib-cachefit-upper-spec/1",
+  "N": 8, "K": 2, "D": 4, "depth": 2,
+  "version_counts": [1, 8], "scenarios": ["identical", "single_unit"],
+  "formats": ["grib"], "selections": ["latest", "all"],
+  "systems": ["V04", "V03", "FS-scan", "FS-index"],
+  "campaigns": 4, "repeats": 5, "exclude_repeat": 0,
+  "grib": {"Ni": 720, "Nj": 721, "packing": "grid_simple", "bits_per_value": 16},
+  "cache": "unchanged 64 MiB and 16 native Float64 fields; shared runtime also remains 256 MiB",
+  "purpose": "additional favorable file-size point, prompted by the independent decoded-field cache capacity; preserve and report larger-grid results",
+  "scope": "new isolated prefixes; no production changes or memory increase; same query/clock/native controls as main large-file run; selected favorable workload, not theoretical maximum"
+}

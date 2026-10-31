@@ -1,0 +1,92 @@
+# CMake 构建目录
+/build/
+/build-*/
+
+/.ccls-cache/
+
+# CMake 生成文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# 流程文件
+tests/benchmarks/arrow_training/manifests
+tests/benchmarks/arrow_training/fixtures
+
+
+# 编译输出（可执行文件、库等）
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.lo
+*.o
+*.obj
+
+# 编辑器/IDE 临时文件
+*.swp
+*~
+.vscode/
+.idea/
+.DS_Store
+._*
+
+# 日志和调试信息
+*.log
+*.tmp
+*.bak
+/core
+*.core
+
+# 忽略安装结果
+/install/
+logs/
+/target-static/
+
+third_party/
+
+# Python CI helper bytecode
+__pycache__/
+
+# docs 根目录只保留索引；四个分类目录存放需版本管理的手工文档。
+# 中间记录与原始实验输出在根目录或 results 中保留本地／服务器副本。
+# 按目录管理，无需逐文件白名单；归档与分类规则见 docs/README.md。
+/docs/*
+!/docs/README.md
+!/docs/contracts/
+!/docs/knowledge/
+!/docs/reports/
+!/docs/deliverables/
+
+experiments/multi_file/results
+
+# Experiment workspaces contain generated data, private configs and source snapshots.
+/experiments/**/work/
+/experiments/fixed_matrix/results/
+
+# Keep handwritten single-file conclusions; archive generated rows/manifests separately.
+/experiments/single_file/results/**
+!/experiments/single_file/results/**/
+!/experiments/single_file/results/**/*.md
+
+# Cross-version acceptance receipts are small evidence indexes, not raw run output.
+/experiments/cross_version/results/*
+!/experiments/cross_version/results/acceptance-20261015.json
+!/experiments/cross_version/results/v[0-9][0-9]-acceptance-*.json
+/experiments/multi_file/feasibility-20261013/metadata.json
+
+# Retired test/probe copies: frozen sources and SHA-verified archives remain available.
+/experiments/legacy/frozen-typed/test_QueryRegistrationSocket.cpp.txt
+/experiments/legacy/hdf5-catalog-strict/dataset_catalog_probe.cpp
+
+# Preliminary notes superseded by retained contracts/final reports. See docs/README.md.
+/docs/reports/server89-environment-readiness-20261014.md
+/docs/reports/hdf5-substructure-index-implementation-20261015.md
+/docs/reports/version-directory-v04-root-check-investigation-20261017.md
+/docs/reports/version-directory-v04-root-check-fix-20261017.md
+/docs/reports/version-directory-v04-v03-performance-investigation-20261017.md

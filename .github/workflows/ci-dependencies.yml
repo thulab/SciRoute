@@ -1,0 +1,51 @@
+name: Verify CI dependencies
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify_dependencies:
+    name: verify-ci-dependencies
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    env:
+      IOTDB_SDK_URL: ${{ vars.IOTDB_SDK_URL }}
+    steps:
+      - name: Require the default branch
+        env:
+          SELECTED_REF: ${{ github.ref }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: test "$SELECTED_REF" = "refs/heads/$DEFAULT_BRANCH"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-toolchain
+      - uses: ./.github/actions/prepare-dependencies
+      - name: Verify application build, tests, and coverage against dependencies
+        run: python3 ci/run_tests.py coverage --build-dir build-ci
+      - name: Verify sanitizer tests against dependencies
+        run: python3 ci/run_tests.py sanitizer --build-dir build-ci-sanitize
+      - name: Verify Release integration and installation against dependencies
+        run: python3 ci/run_tests.py release --build-dir build-ci-release
+      - name: Upload validation logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: dependency-validation-reports
+          path: |
+            build-ci-dependencies/*.log
+            build-ci/*.log
+            build-ci/*.xml
+            build-ci/coverage-summary.json
+            build-ci/summary.md
+            build-ci-sanitize/*.log
+            build-ci-sanitize/*.xml
+            build-ci-sanitize/summary.md
+            build-ci-release/*.log
+            build-ci-release/*.xml
+            build-ci-release/summary.md
+          if-no-files-found: warn
+          retention-days: 14

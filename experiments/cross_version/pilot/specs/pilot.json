@@ -1,0 +1,6 @@
+{
+  "protocol": "iotdbfs-cross-version-spec/1",
+  "versions": 8,
+  "scenarios": ["identical", "single_unit"],
+  "max_new_raw_bytes": 16777216
+}

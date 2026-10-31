@@ -1,0 +1,22 @@
+{
+  "protocol": "iotdbfs-n8-version-matrix-spec/1",
+  "N": 8,
+  "K": 2,
+  "D": 4,
+  "depth": 2,
+  "version_counts": [1, 2, 4, 8],
+  "scenarios": ["identical", "single_unit"],
+  "formats": ["hdf5", "grib"],
+  "selections": ["latest", "exact", "all"],
+  "exact_ordinal": 1,
+  "systems": ["V04", "V03", "FS-scan", "FS-index"],
+  "campaigns": 3,
+  "repeats": 5,
+  "exclude_repeat": 0,
+  "primary_metric": "complete discovery and selected values into owned buffers; hashes and profile waits excluded",
+  "selection_semantics": "latest selects ordinal V before predicates; exact selects each logical path's ordinal 1; all includes every scientific version without content folding",
+  "namespace_isolation": "one independent namespace per system/scenario/V; both formats share that namespace",
+  "fs_history": "full copied files per ordinal; no hardlinks, symlinks or reflinks; one SQLite index per scenario/V/format covers every version",
+  "cache_claim": "prepared OS pages, new worker/owner per campaign; no cold-disk claim",
+  "inference": "pilot only; report all campaign medians and absolute totals, increments, growth and relative advantage; repeated requests are not independent campaigns"
+}

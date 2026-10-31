@@ -1,0 +1,31 @@
+# Business files included in the unit-test line coverage gate.
+# Update explicitly when changing the unit test source set.
+include/iotdbfs/FeatureConfig.h
+include/iotdbfs/FuseSemantics.h
+include/iotdbfs/InodeCache.h
+include/iotdbfs/InodeRowParser.h
+include/iotdbfs/IoTDBClientPolicy.h
+include/iotdbfs/Logging.h
+include/iotdbfs/MetadataCache.h
+include/iotdbfs/MetadataConfig.h
+include/iotdbfs/MetadataProjector.h
+include/iotdbfs/MetadataSchemaCapability.h
+include/iotdbfs/PathUtils.h
+include/iotdbfs/QueryUtils.h
+include/iotdbfs/StagedFile.h
+src/EnvironmentPreflight.cpp
+src/FormatRegistry.cpp
+src/formats/grib/GribExtensionService.cpp
+src/formats/grib/GribFileWriter.cpp
+src/formats/grib/GribWriteStreamer.cpp
+src/InodeCache.cpp
+src/Logging.cpp
+src/MetadataCache.cpp
+src/MetadataConfig.cpp
+src/MetadataConfigStore.cpp
+src/MetadataProjector.cpp
+src/MetadataQueryEvaluator.cpp
+src/MetadataSchemaCapability.cpp
+src/MetadataSerialization.cpp
+src/Platform.cpp
+src/formats/grib/gribUtils.cpp

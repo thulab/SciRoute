@@ -1,0 +1,1498 @@
+{
+  "approval": {
+    "answer": "\u6309\u9996\u8f6e32\u7ec4\u6267\u884c\uff0c\u4fdd\u7559\u56fa\u5b9a\u6269\u5c55\uff08\u63a8\u8350\uff09",
+    "date": "2026-10-21",
+    "source": "direct user reply"
+  },
+  "arms": [
+    "FS-scan",
+    "FS-index",
+    "IoTDB-FS"
+  ],
+  "corpus_rules": {
+    "C_is_query_scope": true,
+    "independent_N": true,
+    "native_oracles": "all unit attributes plus value/mask hashes read from native libraries before timing",
+    "one_frozen_publication_per_corpus": true,
+    "query_scope_basis": "predeclared nested candidate sets; two planted matches retained; never chosen from timing results"
+  },
+  "engines": {
+    "grib": "IoTDB-FS cross-file and intra-file indexes",
+    "hdf5": "native-hdf5 VFD; IoTDB-FS cross-file index only"
+  },
+  "expected_formal_queries": {
+    "full": 5400,
+    "primary": 3456
+  },
+  "groups": [
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H1",
+        "H3",
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V1-C8-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H1-N8"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H1",
+        "H3",
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V1-C8-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H1-N8"
+    },
+    {
+      "C_paths": 128,
+      "C_versions": 128,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 128,
+      "V_stored": 1,
+      "axes": [
+        "H1"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N128-V1-C128-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H1-N128"
+    },
+    {
+      "C_paths": 128,
+      "C_versions": 128,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 128,
+      "V_stored": 1,
+      "axes": [
+        "H1"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N128-V1-C128-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H1-N128"
+    },
+    {
+      "C_paths": 512,
+      "C_versions": 512,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H1",
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N512-V1-C512-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H1-N512"
+    },
+    {
+      "C_paths": 512,
+      "C_versions": 512,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H1",
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N512-V1-C512-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H1-N512"
+    },
+    {
+      "C_paths": 1024,
+      "C_versions": 1024,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 1024,
+      "V_stored": 1,
+      "axes": [
+        "H1"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N1024-V1-C1024-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H1-N1024"
+    },
+    {
+      "C_paths": 1024,
+      "C_versions": 1024,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 1024,
+      "V_stored": 1,
+      "axes": [
+        "H1"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N1024-V1-C1024-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H1-N1024"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N512-V1-C8-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H2-C8"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N512-V1-C8-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H2-C8"
+    },
+    {
+      "C_paths": 32,
+      "C_versions": 32,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N512-V1-C32-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H2-C32"
+    },
+    {
+      "C_paths": 32,
+      "C_versions": 32,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N512-V1-C32-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H2-C32"
+    },
+    {
+      "C_paths": 128,
+      "C_versions": 128,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N512-V1-C128-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H2-C128"
+    },
+    {
+      "C_paths": 128,
+      "C_versions": 128,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 512,
+      "V_stored": 1,
+      "axes": [
+        "H2"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N512-V1-C128-S0-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H2-C128"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H3"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V1-C8-S1-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S1",
+      "table_id": "G-H3-S1"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H3"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V1-C8-S1-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S1",
+      "table_id": "H-H3-S1"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H3"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V1-C8-S2-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S2",
+      "table_id": "G-H3-S2"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 1,
+      "axes": [
+        "H3"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V1-C8-S2-base-latest",
+      "history_scenario": "base",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S2",
+      "table_id": "H-H3-S2"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-identical-latest",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V8-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-identical-latest",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V8-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-identical-historical-first",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V8-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-identical-historical-first",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V8-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-identical-last-two",
+      "history_scenario": "identical",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V8-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-identical-last-two",
+      "history_scenario": "identical",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V8-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 64,
+      "D": 4,
+      "K_file_versions": 16,
+      "K_files": 2,
+      "K_units": 16,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-identical-all-filtered",
+      "history_scenario": "identical",
+      "owned_output_bytes": 327680,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V8-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 64,
+      "D": 4,
+      "K_file_versions": 16,
+      "K_files": 2,
+      "K_units": 16,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-identical-all-filtered",
+      "history_scenario": "identical",
+      "owned_output_bytes": 327680,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V8-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-identical-latest",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V32-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-identical-latest",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V32-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-identical-historical-first",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V32-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-identical-historical-first",
+      "history_scenario": "identical",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V32-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-identical-last-two",
+      "history_scenario": "identical",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V32-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-identical-last-two",
+      "history_scenario": "identical",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V32-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 256,
+      "D": 4,
+      "K_file_versions": 64,
+      "K_files": 2,
+      "K_units": 64,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-identical-all-filtered",
+      "history_scenario": "identical",
+      "owned_output_bytes": 1310720,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "G-H4-I-V32-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 256,
+      "D": 4,
+      "K_file_versions": 64,
+      "K_files": 2,
+      "K_units": 64,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-identical-all-filtered",
+      "history_scenario": "identical",
+      "owned_output_bytes": 1310720,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "H-H4-I-V32-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-single-unit-change-latest",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V8-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-single-unit-change-latest",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V8-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-single-unit-change-historical-first",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V8-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-single-unit-change-historical-first",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V8-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-single-unit-change-last-two",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V8-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-single-unit-change-last-two",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V8-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 64,
+      "D": 4,
+      "K_file_versions": 16,
+      "K_files": 2,
+      "K_units": 16,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V8-C8-S0-single-unit-change-all-filtered",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 327680,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V8-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 64,
+      "D": 4,
+      "K_file_versions": 16,
+      "K_files": 2,
+      "K_units": 16,
+      "N": 8,
+      "V_stored": 8,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "primary",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V8-C8-S0-single-unit-change-all-filtered",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 327680,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V8-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-single-unit-change-latest",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V32-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-single-unit-change-latest",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "latest",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V32-latest"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-single-unit-change-historical-first",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V32-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 8,
+      "D": 4,
+      "K_file_versions": 2,
+      "K_files": 2,
+      "K_units": 2,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-single-unit-change-historical-first",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 40960,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "historical-first",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V32-historical-first"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-single-unit-change-last-two",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V32-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 16,
+      "D": 4,
+      "K_file_versions": 4,
+      "K_files": 2,
+      "K_units": 4,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-single-unit-change-last-two",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 81920,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "last-two",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V32-last-two"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 256,
+      "D": 4,
+      "K_file_versions": 64,
+      "K_files": 2,
+      "K_units": 64,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "grib",
+      "group_id": "FM1-grib-N8-V32-C8-S0-single-unit-change-all-filtered",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 1310720,
+      "selected_unit_shape": [
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "G-H4-U-V32-all-filtered"
+    },
+    {
+      "C_paths": 8,
+      "C_versions": 256,
+      "D": 4,
+      "K_file_versions": 64,
+      "K_files": 2,
+      "K_units": 64,
+      "N": 8,
+      "V_stored": 32,
+      "axes": [
+        "H4"
+      ],
+      "case_id": null,
+      "collection_tier": "extension",
+      "corpus_id": null,
+      "format": "hdf5",
+      "group_id": "FM1-hdf5-N8-V32-C8-S0-single-unit-change-all-filtered",
+      "history_scenario": "single-unit-change",
+      "owned_output_bytes": 1310720,
+      "selected_unit_shape": [
+        1,
+        1,
+        64,
+        64
+      ],
+      "selection": "all-filtered",
+      "size_profile": "S0",
+      "table_id": "H-H4-U-V32-all-filtered"
+    }
+  ],
+  "payload_profiles": {
+    "S0": {
+      "encoded_S": "actual full file-version byte distribution, frozen after preparation; no claimed exact MiB",
+      "nonmatching_shape": [
+        64,
+        64
+      ],
+      "selected_shape": [
+        64,
+        64
+      ]
+    },
+    "S1": {
+      "encoded_S": "actual full file-version byte distribution, frozen after preparation; no claimed exact MiB",
+      "nonmatching_shape": [
+        384,
+        384
+      ],
+      "selected_shape": [
+        64,
+        64
+      ]
+    },
+    "S2": {
+      "encoded_S": "actual full file-version byte distribution, frozen after preparation; no claimed exact MiB",
+      "nonmatching_shape": [
+        768,
+        768
+      ],
+      "selected_shape": [
+        64,
+        64
+      ]
+    }
+  },
+  "protocol": "iotdbfs-fixed-matrix-proposal/1",
+  "repetitions": {
+    "arm_order": "all six permutations repeated twice in each 12-repeat cell; schedule frozen before execution",
+    "campaigns": 3,
+    "measured": 10,
+    "warmup": 2
+  },
+  "requested_first_round": "primary",
+  "resources": {
+    "cold_disk_claim": false,
+    "concurrency": 1,
+    "database_direct_MiB": 2176,
+    "database_heap_MiB": 15232,
+    "logical_cpus": [
+      2,
+      3
+    ],
+    "query_memory_bytes": 2147483648,
+    "shared_total_cpu_quota": "200000 100000"
+  },
+  "source": {
+    "document_id": "GndRdq8qaoNw5jxcBNrcYmVMnsb",
+    "revision": 626,
+    "section": "4.3",
+    "snapshot_sha256": "b4c196644397ce49a1d21b6bd6a59a578659722560d54a7b8cc2138782de2912",
+    "url": "https://apache-iotdb-project.feishu.cn/wiki/Kx87wsVXpiB5aUkYG50cCKoEnmg"
+  },
+  "status": "APPROVED_PRIMARY_2026-10-21"
+}
