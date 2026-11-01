@@ -1,10 +1,17 @@
 # README figures
 
-These figures are copied without modification from the manuscript *Beyond Opaque Byte Streams: Layered Query Processing for Structured Scientific Files* (working version, 2026-10-31).
+Figures 1 and 2 are copied byte-for-byte from *SciRoute: From Scientific Queries
+to Native File Access*, manuscript revision `eaea499bb99d1d71436700f96aedaa18479c4bc2` (2026-11-02).
+The [manifest](manifest.json) records PNG hashes, corresponding vector-PDF hashes,
+and the manuscript PDF hash. These are document identities, not benchmark code
+or runtime identities.
 
-| Asset | Manuscript figure | SHA256 |
+| Asset | Paper figure | Meaning |
 | --- | --- | --- |
-| [iotdb-fs-motivation.png](iotdb-fs-motivation.png) | Figure 1 | `2f9e0134f21b27a6b96570916680cf4e331eb45e15245a67da7e202e5e5dd118` |
-| [iotdb-fs-framework.png](iotdb-fs-framework.png) | Figure 2 | `12f714fb95ffc8d852ce5d495d11270164aa1352f75eba3b52ebf1a4a79c7ec4` |
+| [Motivation](iotdb-fs-motivation.png) | Figure 1 | Coarse decoding, repeated discovery, multiple publications |
+| [Query pipeline](iotdb-fs-framework.png) | Figure 2 | Source binding, discovery, native planning, execution and results |
 
-The images describe the paper model and execution settings. See the repository README for the implemented scope of the standalone FS-index component.
+The images show the paper model and execution settings. The main README and
+FS-index guide distinguish the paper's experimental adaptations from the
+standalone component's supported interface. No figures were regenerated for
+this README update.

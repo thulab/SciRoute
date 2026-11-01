@@ -1,0 +1,24 @@
+{
+  "paper_title": "SciRoute: From Scientific Queries to Native File Access",
+  "paper_revision": "eaea499bb99d1d71436700f96aedaa18479c4bc2",
+  "synced_on": "2026-11-02",
+  "paper_pdf_sha256": "970eb0d324dcb68383b0e5e23187242c164c05f76bf6649d714ef1f4d3f69f89",
+  "assets": [
+    {
+      "file": "iotdb-fs-motivation.png",
+      "figure": 1,
+      "source_path": "figures/iotdb-fs-motivation.png",
+      "sha256": "5905ef3241435bf46556cde682e089dada16286f512f7a50ea13991237c612ab",
+      "paper_vector_sha256": "f1e9dc8828bf11f15363aec5b067900bd5f6abd3fd44a1f04a012ff8cbd903db",
+      "copy_mode": "byte-identical PNG; no regeneration"
+    },
+    {
+      "file": "iotdb-fs-framework.png",
+      "figure": 2,
+      "source_path": "figures/iotdb-fs-framework.png",
+      "sha256": "3991f11d6b8f3b90848f554ff8aef74087a67efb97d3c70c8c40849999afaaa0",
+      "paper_vector_sha256": "8bd66dba9315b1e6683cd97feda1ede5eeec41fc802bda56a4b88a63d392cafd",
+      "copy_mode": "byte-identical PNG; no regeneration"
+    }
+  ]
+}
