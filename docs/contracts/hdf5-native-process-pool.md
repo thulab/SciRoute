@@ -1,6 +1,6 @@
 # Native HDF5 有界进程执行（已撤回，历史契约）
 
-2026-10-26：依据小文件与扩大规模探针，该实验后端已从当前生产构建撤回；配置 `query.hdf5.native_processes`、专用 helper、进程传输与公共调度器异步接点均已移除。Native HDF5 恢复进程内执行和既有资源感知排队。旧配置中的该键（包括值0）会在连接数据库及挂载前明确拒绝。本文保留当时的实现与验收边界，供[原探针](../reports/hdf5-native-process-probe-20261026.md)及[规模对照](../reports/hdf5-native-indexed-scale-probe-20261026.md)复核，不代表当前可用功能。
+2026-10-26：依据小文件与扩大规模探针，该实验后端已从当前生产构建撤回；配置 `query.hdf5.native_processes`、专用 helper、进程传输与公共调度器异步接点均已移除。Native HDF5 恢复进程内执行和既有资源感知排队。旧配置中的该键（包括值0）会在连接数据库及挂载前明确拒绝。本文保留当时的实现与验收边界，供原探针 (local archive: `docs/reports/hdf5-native-process-probe-20261026.md`)及规模对照 (local archive: `docs/reports/hdf5-native-indexed-scale-probe-20261026.md`)复核，不代表当前可用功能。
 
 `query.hdf5.native_processes=0` 默认关闭，保留既有进程内 Native HDF5 路径。设为 1–16 时，要求 `query.hdf5.mode=native-hdf5`、`query.hdf5.native_cache=false`，且进程数不超过 `query.tasks.worker_threads`。专用 `iotdbfs_native_query_worker` 安装在 daemon 同一目录，使用相同构建和依赖，通过 `posix_spawn/exec` 独立初始化。启动握手失败明确报错，不回退执行，也不在运行中的多线程 daemon 中执行 fork 后的 C++ 查询代码。
 

@@ -116,7 +116,7 @@ and validity bits against the canonical NumPy arrays, explicit segment metadata,
 every adjacent segment boundary, and all six nested fixtures. The boundary
 windows cross segments **within one IPC stream**, not separate files. The
 2026-09-29 run is recorded in
-[the acceptance report](../../../docs/reports/public-training-pb00-pb01-acceptance-20260929.md).
+the acceptance report (local archive: `docs/reports/public-training-pb00-pb01-acceptance-20260929.md`).
 This command does not itself produce the split, training-only normalization or
 window manifest. The first two artifacts are now produced separately below;
 public cross-file shards are outside the initial A/B workload.
@@ -204,7 +204,7 @@ Range buckets are `<=1, <=4, <=16, <=32, >32`; byte buckets are `<=16 KiB,
 against the original counters. For controlled byte-versus-range measurements,
 build `arrow_read_shape_probe` explicitly and run it on one exact published
 source version, then summarize its CSV with `summarize_read_shape_probe.py`.
-The [Electricity read-shape report](../../../docs/reports/public-training-read-shape-profile-20260929.md)
+The Electricity read-shape report (local archive: `docs/reports/public-training-read-shape-profile-20260929.md`)
 records the 50-cycle live run and its limits.
 
 New training reports retain per-request paths and client timings. Join them
@@ -241,7 +241,7 @@ g++ -std=c++17 -O2 -I"$BASE/deps/arrow-prefix/include" \
   --output "$BASE/manifests/a00-cpp-stream-oracle.json"
 ```
 
-The C++ spike uses Arrow's normal batch reader to check native API, codec, and library compatibility; the Python spike supplies the selective physical-read trace. Neither is the production QuerySource adapter. Measurements and limits are recorded in [A00 results](../../../docs/reports/arrow-query-spikes.md).
+The C++ spike uses Arrow's normal batch reader to check native API, codec, and library compatibility; the Python spike supplies the selective physical-read trace. Neither is the production QuerySource adapter. Measurements and limits are recorded in A00 results (local archive: `docs/reports/arrow-query-spikes.md`).
 
 ## A03 native ingestion validation
 
@@ -280,7 +280,7 @@ two repetitions with reversed arm order. Arguments match
 `finally`; use it only on the dedicated experiment mount. Request-byte totals
 include the one-time preparation and per-result release messages. See
 [protocol](../../../docs/contracts/arrow-prepared-training-registration.md) and
-[results](../../../docs/reports/public-training-prepared-registration-20260930.md).
+results (local archive: `docs/reports/public-training-prepared-registration-20260930.md`).
 
 
 ## Client array conversion ablation
@@ -329,4 +329,4 @@ read lanes, two models, cold/warm cache and two repetitions (reversed arm order)
 First preparation remains timed. The dedicated mount is restored in `finally`.
 Cold means decoded cache only; OS/database caches are not dropped.
 
-[Prepared execution and buffer conversion results](../../../docs/reports/public-training-execution-cost-20260930.md).
+Prepared execution and buffer conversion results (local archive: `docs/reports/public-training-execution-cost-20260930.md`).

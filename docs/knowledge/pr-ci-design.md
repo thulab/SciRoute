@@ -267,5 +267,5 @@ GitHub 仓库变量中配置。
 - [Required status checks 排查](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks)
 - [Merge queue 配置](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [本项目 UT 命令](../../tests/unit/README.md)
-- [本项目 UT 结果与覆盖率范围](../reports/ut-report-2026-09-15.md)
+- 本项目 UT 结果与覆盖率范围 (local archive: `docs/reports/ut-report-2026-09-15.md`)
 - [本项目真实集成测试](../../tests/integration/README.md)

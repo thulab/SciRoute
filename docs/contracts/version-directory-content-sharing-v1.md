@@ -1,6 +1,6 @@
 # 版本目录与内容共享：V01–V04 实现契约
 
-日期：2026-10-15；V02/V03 更新：2026-10-16；V04 实现与验收更新：2026-10-17。适用计划：[版本目录与内容共享](../deliverables/version-directory-content-sharing-plan.md)。本契约保留 V00 冻结的 V01–V06 设计边界，并记录 V01 已接线的 owner、持久目录和 codec；第 8 节记录 V02 内容对象、证明、缓存及新持久格式边界，第 9 节记录 V03 准入，第 10 节记录 V04 实现；[V04 验收](../reports/version-directory-v04-validation-20261017.md)已通过最终构建及真实数据库/FUSE 门禁。[V01 验收](../reports/version-directory-v01-validation-20261015.md)记录 251 项单测及真实 Store/FUSE/恢复证据。新模式显式启用，默认 strict 及已有持久数据的解释保持不变。D1–D5 均经用户确认；用户后续明确所有实验共用现有 owner 账号，不创建新账号或修改 ACL。V00 的实验是 head 候选原语与现行语义证据；[V00 报告](../reports/version-directory-v00-validation-20261015.md)包含实际 JAR 字节码、10 组 head 用例及独立生效配置短验。
+日期：2026-10-15；V02/V03 更新：2026-10-16；V04 实现与验收更新：2026-10-17。适用计划：版本目录与内容共享 (local archive: `docs/deliverables/version-directory-content-sharing-plan.md`)。本契约保留 V00 冻结的 V01–V06 设计边界，并记录 V01 已接线的 owner、持久目录和 codec；第 8 节记录 V02 内容对象、证明、缓存及新持久格式边界，第 9 节记录 V03 准入，第 10 节记录 V04 实现；V04 验收 (local archive: `docs/reports/version-directory-v04-validation-20261017.md`)已通过最终构建及真实数据库/FUSE 门禁。V01 验收 (local archive: `docs/reports/version-directory-v01-validation-20261015.md`)记录 251 项单测及真实 Store/FUSE/恢复证据。新模式显式启用，默认 strict 及已有持久数据的解释保持不变。D1–D5 均经用户确认；用户后续明确所有实验共用现有 owner 账号，不创建新账号或修改 ACL。V00 的实验是 head 候选原语与现行语义证据；V00 报告 (local archive: `docs/reports/version-directory-v00-validation-20261015.md`)包含实际 JAR 字节码、10 组 head 用例及独立生效配置短验。
 
 ## 1. 已确认决策与启用门槛
 
@@ -12,7 +12,7 @@
 | D4 | GC 首版只在停写且无活动读取租约时显式执行 mark-and-sweep。完整标记后先 dry-run；失败不使用不完整标记删除对象；tombstone 不随内容回收。 |
 | D5 | 先 metadata/layout，再试点 1 MiB 原始编码字节定长块。目录、映射、读取预算见第 6 节；不引入 CDC、差分或历史重建链。 |
 
-V01 依据[写入口清单](../reports/version-directory-v00-write-audit-20261015.md)接线受支持的 mount/backend：inode 权限、普通 FUSE、typed 目录以 committed root 为可见真相；rename 的目标发布与源删除共用一笔事务；删除撤销目录绑定并保留 tombstone，不执行旧模式物理回收。旧独立 reader、迁移和直连客户端不能作为新模式 owner 入口，显式 owner 模式下未接线命令拒绝运行。strict 客户端访问原表，不自动识别新前缀；知晓前缀并持有共享账号的 raw SQL 不受本协议阻止，属于支持边界之外。只读 head 诊断不打开 journal、不占写租约，也不返回 ReadContext。
+V01 依据写入口清单 (local archive: `docs/reports/version-directory-v00-write-audit-20261015.md`)接线受支持的 mount/backend：inode 权限、普通 FUSE、typed 目录以 committed root 为可见真相；rename 的目标发布与源删除共用一笔事务；删除撤销目录绑定并保留 tombstone，不执行旧模式物理回收。旧独立 reader、迁移和直连客户端不能作为新模式 owner 入口，显式 owner 模式下未接线命令拒绝运行。strict 客户端访问原表，不自动识别新前缀；知晓前缀并持有共享账号的 raw SQL 不受本协议阻止，属于支持边界之外。只读 head 诊断不打开 journal、不占写租约，也不返回 ReadContext。
 
 配置为 `storage.version_directory.mode=owner`，同时指定 `table_prefix`、绝对路径 `owner_directory`；首次空 namespace 显式 `initialize=true`，正常重启为 `false`。prefix 为 4–51 字节、以 `vd_` 开头的小写字母/数字/下划线。backend 接受 `127.0.0.1` 或 `localhost` 并归一为前者，数据库名称必须小写。canonical scope 为 `127.0.0.1:port/database/prefix`，用 ContentId framing 的 type=`owner-scope`、protocol=`iotdbfs-owner-scope/1` 求摘要，固定锁路径为 `/tmp/iotdbfs-v1-<摘要>.lock`，不读取 `IOTDBFS_NAMESPACE_LOCK`。更换 owner_directory 不能避开同一 scope 锁，空 journal 不能接管已有 head。此边界依赖同一主机及稳定锁文件；SSH 隧道、跨主机进程、同账号 raw SQL 或管理员替换本地状态均无隔离保证。
 
@@ -103,7 +103,7 @@ GC 输出逻辑字节、唯一可达字节、共享引用、孤儿和可回收�
 
 ## 6. D5 硬预算及边界
 
-以下冻结数值亦见 [version-directory-v1.json](../../experiments/cross_version/version_directory/specs/version-directory-v1.json) 的 limits；该文件的历史阶段 status/v02 字段不作为 V04 实现或验收声明。以下是用户确认的新协议上限；head 候选实验只覆盖 256/4,096 字节，不将其它尚未实现的上限称为实测容量。
+以下冻结数值亦见 version-directory-v1.json (local archive: `experiments/cross_version/version_directory/specs/version-directory-v1.json`) 的 limits；该文件的历史阶段 status/v02 字段不作为 V04 实现或验收声明。以下是用户确认的新协议上限；head 候选实验只覆盖 256/4,096 字节，不将其它尚未实现的上限称为实测容量。
 
 | 项目 | 上限 | 执行阶段 |
 |---|---:|---|
@@ -129,7 +129,7 @@ V01 core 已实施 head/page/height、单 scan 至多 65,536 条及目录遍历/
 
 N=128/K=2/D=4/depth=2 主指标 A 保持 HDF5 **106.811351 ms**，同期 GRIB **57.404444 ms**。V00 不重跑或替换性能基线，不宣称发现 SQL 已消除。获批的跨版本环境为 N=8/D=4、每路径 8 个科学版本、identical/single_unit 两组；raw 复用比例不等于后端压缩率。
 
-V01 实现提交身份/owner/codec、IoTDB Store、FileJournal 与 backend/FUSE 接线。V02 格式证明与验证缓存见第 8 节和 V02 验收报告；V03 完整准入/租约、共享请求预算和发现消融已由第 9 节及 [V03 验收报告](../reports/version-directory-v03-validation-20261016.md)交付。V04 extent 与 payload 共享已完成最终构建及真实验收（第 10 节和 [V04 报告](../reports/version-directory-v04-validation-20261017.md)）；V05 GC、V06 迁移/灾备恢复身份仍待实现。每阶段按[计划](../deliverables/version-directory-content-sharing-plan.md)验收后才能声明对应能力。V01 单测、实际 Store 故障包装及 mount 验证的最终结果与限制由主报告补充；进程内 wrapper 只证明对应故障控制流，不称为真实网络丢 ACK，后者另见 V00 实验。
+V01 实现提交身份/owner/codec、IoTDB Store、FileJournal 与 backend/FUSE 接线。V02 格式证明与验证缓存见第 8 节和 V02 验收报告；V03 完整准入/租约、共享请求预算和发现消融已由第 9 节及 V03 验收报告 (local archive: `docs/reports/version-directory-v03-validation-20261016.md`)交付。V04 extent 与 payload 共享已完成最终构建及真实验收（第 10 节和 V04 报告 (local archive: `docs/reports/version-directory-v04-validation-20261017.md`)）；V05 GC、V06 迁移/灾备恢复身份仍待实现。每阶段按计划 (local archive: `docs/deliverables/version-directory-content-sharing-plan.md`)验收后才能声明对应能力。V01 单测、实际 Store 故障包装及 mount 验证的最终结果与限制由主报告补充；进程内 wrapper 只证明对应故障控制流，不称为真实网络丢 ACK，后者另见 V00 实验。
 
 
 ## 8. V02：不可变内容证明与独立版本封印
@@ -204,7 +204,7 @@ profile的`hot_cache_before/after`是挂载共享额度快照，包括resident�
 
 ## 10. V04：完整块映射、真实批读与固定内容读取
 
-本节依据 2026-10-17 r3 冻结生产代码记录已实现行为；最终真实数据库/FUSE 验收已通过，[主代理报告](../reports/version-directory-v04-validation-20261017.md)及[机器可读验收收据](../../experiments/cross_version/results/v04-acceptance-20261017.json)承载最终结果。用户已确认使用新 namespace/profile/descriptor，并在确认 head 后删除已提交版本的 payload staging；1 MiB、页大小、树高及请求上限沿用第 6 节，不因新协议调整。V04 不实现 V05 GC 或 V06 迁移，不重定义冻结性能基线。
+本节依据 2026-10-17 r3 冻结生产代码记录已实现行为；最终真实数据库/FUSE 验收已通过，主代理报告 (local archive: `docs/reports/version-directory-v04-validation-20261017.md`)及机器可读验收收据 (local archive: `experiments/cross_version/results/v04-acceptance-20261017.json`)承载最终结果。用户已确认使用新 namespace/profile/descriptor，并在确认 head 后删除已提交版本的 payload staging；1 MiB、页大小、树高及请求上限沿用第 6 节，不因新协议调整。V04 不实现 V05 GC 或 V06 迁移，不重定义冻结性能基线。
 
 ### 10.1 新 namespace 与持久引用
 
@@ -267,7 +267,7 @@ metadata 64 MiB、payload 1 GiB、extent 65,536 分域累计，任一超限使�
 
 普通 owner Storage/backend 读取入口在没有活动 ledger 且没有 producer trace 时建立 standalone 请求 scope，覆盖首次 manifest/绑定/后续 map 读取，不能每个子调用各自重置 64 MiB。已有外层 ledger 复用；独立请求使用新 ledger；strict 不新增 owner scope。共享解码 producer 有中立 trace 时不借用首等待者 ledger，payload/extent/metadata 费用均捕获并由各 waiter/热命中重放，单个 waiter 失败不毒化其它 waiter 或缓存。
 
-2026-10-17 按用户要求，以完整查询耗时决定是否保留性能改动。重复根校验复用与 head 热路径两轮试验均未通过该标准，已[回退到 V04 r3](../reports/version-directory-v04-head-hotpath-optimization-20261017.md#性能门禁与最终回退)。当前 manifest 与 catalog 准备各自执行原根验证，head 观察沿用原编码计费；必要验证、请求预算、权限与最终准入保留。局部调用减少或微基准收益不能作为保留优化的依据。
+2026-10-17 按用户要求，以完整查询耗时决定是否保留性能改动。重复根校验复用与 head 热路径两轮试验均未通过该标准，已回退到 V04 r3 (local archive: `docs/reports/version-directory-v04-head-hotpath-optimization-20261017.md`)。当前 manifest 与 catalog 准备各自执行原根验证，head 观察沿用原编码计费；必要验证、请求预算、权限与最终准入保留。局部调用减少或微基准收益不能作为保留优化的依据。
 
 `QueryStorageReadControl` 在映射/块处理检查取消与执行状态；DecodedFragmentCache producer 把存储临时预留计入其运行时 live/temporary/peak，实际存储 bytes/ranges 另加到原 adapter logical I/O 计数中。额外容量不足时先回收可回收缓存项，否则明确 ResourceExhausted，不等待借用者释放且不允许 loader 吞掉失败后发布成功。检查点或实际 I/O 回调的取消/原错误状态保留，不统一改写 Internal；预留 token 在锁外释放，失败也归还费用。
 

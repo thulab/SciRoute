@@ -4,7 +4,7 @@
 
 - 来源：用户指定飞书文档 4.3 节，文档 `GndRdq8qaoNw5jxcBNrcYmVMnsb`，revision 626；原始响应与 SHA 留存在实验 work/source。
 - 方法：academic-research-suite / experiment-agent，plan → run → validate。
-- 日期：2026-10-21；状态：**32组、3个campaign主统计已完整验收：3,456条（2,880测量＋576预热）。保留r2完整前两轮2,304条，按用户确认整轮重采第三轮1,152条；原第三轮72条留档但全部排除。14份语料／32个case复用，原服务与资源已恢复，18扩展未执行**。预注册revision 638，变量／目的首列revision 643；本轮使用 `collection-r2` 与 `collection-r3-query-only/accepted`；[完整验收报告](../reports/fixed-matrix-fm1-20261021.md)。
+- 日期：2026-10-21；状态：**32组、3个campaign主统计已完整验收：3,456条（2,880测量＋576预热）。保留r2完整前两轮2,304条，按用户确认整轮重采第三轮1,152条；原第三轮72条留档但全部排除。14份语料／32个case复用，原服务与资源已恢复，18扩展未执行**。预注册revision 638，变量／目的首列revision 643；本轮使用 `collection-r2` 与 `collection-r3-query-only/accepted`；完整验收报告 (local archive: `docs/reports/fixed-matrix-fm1-20261021.md`)。
 - 本轮全部使用新测量。旧结果只作历史档案，不进入基线、统计、最佳组选择或性能主张；原始文件不删除、不改写。
 
 ## 1. 研究问题与固定格式路线
@@ -145,6 +145,6 @@
 
 飞书原4.3节完整结果已回填至revision 651，当前表 `doxcnDxRiHOmi53ngtBkEkfiNhd`；51行×11列逐格回读相符，32首轮结果完整，18扩展、目的列、x/y及最后四项用户条件保持不变。三个写入回执均success且无warnings，核验收据为 `source/feishu-complete/verification.json`。
 
-后续用户已批准将`native-hdf5`取值改为受管FS完整文件，并要求补齐HDF5首轮矩阵；执行边界见[新通路方案6.1](hdf5-native-filesystem-plan.md#61-用户追加授权补齐hdf5固定首轮组)。本轮复用7份原HDF5 corpus／16个case，按同一三campaign协议新建1,728条run，不拼入先行72条路径探针、不改GRIB／18扩展。792个精确版本的位置绑定已准备完成；这些namespace必须用新版和新收据中的当前journal打开，原发布journal只作档案，不能继续交给旧`replay`入口。原FM1所有封印字节和旧结果保持不变。新采集、资源与恢复证据位于`work/hdf5-native-matrix-20261021/`；已完整验收并在飞书原表原位更新对应HDF5行。
+后续用户已批准将`native-hdf5`取值改为受管FS完整文件，并要求补齐HDF5首轮矩阵；执行边界见新通路方案6.1 (local archive: `docs/deliverables/hdf5-native-filesystem-plan.md`)。本轮复用7份原HDF5 corpus／16个case，按同一三campaign协议新建1,728条run，不拼入先行72条路径探针、不改GRIB／18扩展。792个精确版本的位置绑定已准备完成；这些namespace必须用新版和新收据中的当前journal打开，原发布journal只作档案，不能继续交给旧`replay`入口。原FM1所有封印字节和旧结果保持不变。新采集、资源与恢复证据位于`work/hdf5-native-matrix-20261021/`；已完整验收并在飞书原表原位更新对应HDF5行。
 
 本轮已完整验收1,728条、三轮16case，独立复算和792版本／736完整FS文件SHA核验通过；3,544周期样本、3,456逐查询边界帧及原服务／资源恢复均通过。16组中位R为7.031–10.164，没有优于FS-index；结果不替换成先行探针或历史最快值。飞书原表已更新16个HDF5行的80个结果／资源／备注单元，并补16个备注中的同轮T配对；GRIB／扩展、目的／参数、x/y及用户四项条件保留。最终4.3原有条件说明更新至revision664，无新增章节；完整回读位于`work/hdf5-native-matrix-20261021/feishu/complete-section.json`，核验收据`methods-verification.json`。最终表ID为`doxcnzGhegECVvR6FPn0s2yuCMe`。

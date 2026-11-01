@@ -111,7 +111,7 @@ ROI 或查询答案。每请求仍按原身份的 max/delta 逻辑费用计入�
 新增 `hot_query.domain_hits`、`domain_builds`、`index_lookups`、`proof_hits`、
 `proof_builds` 计数；实际 owner 准入继续记录为 `version_context.admissions`。
 热查询与首次构建必须分别计时，完整查询验收见
-[跨请求热缓存实验](../reports/hdf5-route3.md#hot-cache)。
+跨请求热缓存实验 (local archive: `docs/reports/hdf5-route3.md`)。
 
 ## 操作与观测
 
@@ -140,7 +140,7 @@ COUNT/JOIN；下述性能报告保留各自的历史 strict 对照。`sql_querie
 输出上限跳过检查。新增 `predicate_compiles`、
 `predicate_bindings` 计数也使用 `dataset_substructure_index.` 前缀。
 预编译消融与经用户批准的计时外采集修复见
-[性能报告](../reports/hdf5-predicate-precompile-ablation-20261015.md)。
+性能报告 (local archive: `docs/reports/hdf5-predicate-precompile-ablation-20261015.md`)。
 
 非 owner 通用路径将授权后的精确 manifest 重验与时间候选的 marker 获取
 合为带 INT64 类型标签的有界 `UNION ALL`：每批最多 128 源、整条 SQL 最多
@@ -155,10 +155,10 @@ owner 路径使用自己的冻结目录、准入和变更校验，不能据此�
 `marker_rows`。独立 manifest／marker counters 保留用于对应存储操作，
 不能将它们为零解释为跳过检查。该 SQL 要求表模型支持有界 UNION ALL；
 单分支与 UNION 使用同一 INT64 标签，避免常量投影的 INT32 类型差异。
-[N=128 合并读取消融](../reports/hdf5-manifest-marker-ablation-20261015.md)记录固定
+N=128 合并读取消融 (local archive: `docs/reports/hdf5-manifest-marker-ablation-20261015.md`)记录固定
 runner、完整客户端计时、GRIB 控制和已验证的错误边界。
 
 功能探针的 SQL 次数不直接推导 wall-time 改善。冻结 N=128 runner 的实际计时、
 发布额外成本及适用边界另见
-[性能验收报告](../reports/hdf5-substructure-index-n128-20261015.md)；该实验未修改
+性能验收报告 (local archive: `docs/reports/hdf5-substructure-index-n128-20261015.md`)；该实验未修改
 冻结多文件 runner 或历史性能基线。

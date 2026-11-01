@@ -53,40 +53,92 @@ third_party/
 # Python CI helper bytecode
 __pycache__/
 
-# docs 根目录只保留索引；四个分类目录存放需版本管理的手工文档。
-# 中间记录与原始实验输出在根目录或 results 中保留本地／服务器副本。
-# 按目录管理，无需逐文件白名单；归档与分类规则见 docs/README.md。
+# Local workspaces and research archives are not public source inputs.
+/.tmp/
+/.pytest_cache/
+/TimeSeek/
+/report/
+/.codex
+/CLAUDE.md
+/GEMINI.md
+/PR_DESCRIPTION_ARROW.md
+/PR_DESCRIPTION_QUERY_COST.md
+/PaperDemo.md
+/Test.md
+
+# Public documentation: current contracts, operational knowledge, frozen protocol.
 /docs/*
 !/docs/README.md
 !/docs/contracts/
 !/docs/knowledge/
-!/docs/reports/
 !/docs/deliverables/
+/docs/deliverables/*
+!/docs/deliverables/fixed-experiment-matrix-plan.md
 
-experiments/multi_file/results
-
-# Experiment workspaces contain generated data, private configs and source snapshots.
+# Generated and historical experiment output stays local.
 /experiments/**/work/
-/experiments/fixed_matrix/results/
+/experiments/**/results/
+/experiments/legacy/
+/experiments/multi_file/feasibility-20261013/
+/experiments/cross_version/large_file/
 
-# Keep handwritten single-file conclusions; archive generated rows/manifests separately.
-/experiments/single_file/results/**
-!/experiments/single_file/results/**/
-!/experiments/single_file/results/**/*.md
-
-# Cross-version acceptance receipts are small evidence indexes, not raw run output.
-/experiments/cross_version/results/*
-!/experiments/cross_version/results/acceptance-20261015.json
-!/experiments/cross_version/results/v[0-9][0-9]-acceptance-*.json
-/experiments/multi_file/feasibility-20261013/metadata.json
-
-# Retired test/probe copies: frozen sources and SHA-verified archives remain available.
-/experiments/legacy/frozen-typed/test_QueryRegistrationSocket.cpp.txt
-/experiments/legacy/hdf5-catalog-strict/dataset_catalog_probe.cpp
-
-# Preliminary notes superseded by retained contracts/final reports. See docs/README.md.
-/docs/reports/server89-environment-readiness-20261014.md
-/docs/reports/hdf5-substructure-index-implementation-20261015.md
-/docs/reports/version-directory-v04-root-check-investigation-20261017.md
-/docs/reports/version-directory-v04-root-check-fix-20261017.md
-/docs/reports/version-directory-v04-v03-performance-investigation-20261017.md
+# Retired notes and exploratory controllers. Keep shared runtime dependencies.
+/docs/knowledge/era5-d1-q2-bottleneck-analysis-20261007.md
+/docs/knowledge/extensibility-review.md
+/docs/knowledge/hdf5-adapter-review-fixes.md
+/docs/knowledge/hdf5-cold-path-review.md
+/docs/knowledge/hdf5-copy-path-overhead.md
+/docs/knowledge/hdf5-geos-time-directory.md
+/docs/knowledge/hdf5-grib-query-cost-structure-audit-20261014.md
+/docs/knowledge/hdf5-physical-pruning-scenario-evidence.md
+/docs/knowledge/hdf5-query-setup-review.md
+/docs/knowledge/hdf5-scientific-conversion-review.md
+/docs/knowledge/iotdb-interface-optimization-audit-20261010.md
+/docs/knowledge/iotdbfs-training-cost-boundaries-and-scenarios-20260930.md
+/docs/knowledge/query-sql-plan-audit-20261010.md
+/experiments/cross_version/hdf5_route3/hdf5_two_modes.py
+/experiments/cross_version/hdf5_route3/route3_fs_only.py
+/experiments/cross_version/hdf5_route3/route3_membership_ablation.py
+/experiments/cross_version/hdf5_route3/specs/route3-hdf5.json
+/experiments/cross_version/hdf5_route3/tests/test_hdf5_two_modes.py
+/experiments/cross_version/hdf5_route3/tests/test_route3_fs_only.py
+/experiments/cross_version/hdf5_route3/tests/test_route3_membership_ablation.py
+/experiments/cross_version/resource_limited/historical.py
+/experiments/cross_version/resource_limited/phase_ratios.py
+/experiments/cross_version/resource_limited/tests/test_historical.py
+/experiments/cross_version/resource_limited/tests/test_phase_ratios.py
+/experiments/cross_version/resource_limited/tests/test_supervisor.py
+/experiments/cross_version/version_directory/specs/version-directory-v03-runtime.json
+/experiments/cross_version/version_directory/specs/version-directory-v04-runtime.json
+/experiments/cross_version/version_directory/specs/version-directory-v1.json
+/experiments/cross_version/version_directory/v00_permissions.py
+/experiments/cross_version/version_directory/v01_strict_validation.py
+/experiments/cross_version/version_directory/v01_validation.py
+/experiments/cross_version/version_directory/v02_validation.py
+/experiments/cross_version/version_directory/v03_validation.py
+/experiments/cross_version/version_directory/v04_validation.py
+/experiments/fixed_matrix/client_lifetime_pair.py
+/experiments/fixed_matrix/control_plane_probe.py
+/experiments/fixed_matrix/directed_wakeup_probe.py
+/experiments/fixed_matrix/distinct_message_probe.py
+/experiments/fixed_matrix/four_task_diagnosis.py
+/experiments/fixed_matrix/four_task_diagnosis_r2.py
+/experiments/fixed_matrix/n8_n128_fourway.py
+/experiments/fixed_matrix/native_process_probe.py
+/experiments/fixed_matrix/native_process_scale_probe.py
+/experiments/fixed_matrix/native_read_probe.py
+/experiments/fixed_matrix/payload_coalesce_probe.py
+/experiments/fixed_matrix/query_tail_coarse.py
+/experiments/fixed_matrix/query_tail_diagnosis.py
+/experiments/fixed_matrix/query_template_pair.py
+/experiments/fixed_matrix/result_fetch_probe.py
+/experiments/fixed_matrix/result_sender_probe.py
+/experiments/fixed_matrix/selector_handle_pair.py
+/experiments/fixed_matrix/tail_controls.py
+/experiments/fixed_matrix/tail_reversed.py
+/experiments/fixed_matrix/tests/test_client_lifetime_pair.py
+/experiments/fixed_matrix/tests/test_query_template_pair.py
+/experiments/fixed_matrix/tests/test_selector_handle_pair.py
+/experiments/fixed_matrix/tests/test_tail_controls.py
+/experiments/fixed_matrix/tests/test_tail_reversed.py
+/experiments/fixed_matrix/v8_domain_probe.py

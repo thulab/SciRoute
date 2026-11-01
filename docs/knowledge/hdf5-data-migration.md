@@ -1,6 +1,6 @@
 # H09：旧 HDF5 数据重摄取
 
-> 2026-10-06 扩展：当前写入协议为 layout `/5`；新增 GEOS 压力轴证据，旧 `/4` 保留物理查询但不提供压力语义。下述 H03–H11 记录保留其当时版本；现行操作见 [dataset 发现与 CF 查询](../contracts/hdf5-dataset-discovery.md)及 [GEOS 生产多时次验收](../reports/hdf5-geos-production-multitime.md)。
+> 2026-10-06 扩展：当前写入协议为 layout `/5`；新增 GEOS 压力轴证据，旧 `/4` 保留物理查询但不提供压力语义。下述 H03–H11 记录保留其当时版本；现行操作见 [dataset 发现与 CF 查询](../contracts/hdf5-dataset-discovery.md)及 GEOS 生产多时次验收 (local archive: `docs/reports/hdf5-geos-production-multitime.md`)。
 
 状态（2026-10-02）：**H09 已完成小规模验收**。Linux 完整构建、1,254/1,254 CTest 与隔离 IoTDB/FUSE 迁移验证通过；本地公共 journal 15/15 ASan/UBSan、策略／服务 26/26 普通及 ASan/UBSan 通过。范围仅为本次隔离数据库，不代表现有生产数据已经迁移。
 

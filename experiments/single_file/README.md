@@ -15,7 +15,7 @@ prefixes are preserved.
 
 GRIB readiness is checked separately by `grib_readiness.py`, using an existing
 published multi-message source and a native ecCodes oracle. The accepted
-[2026-10-12 pilot](results/grib-readiness-20261012/RESULTS.md) verifies message
+2026-10-12 pilot (local archive: `experiments/single_file/results/grib-readiness-20261012/RESULTS.md`) verifies message
 pruning, exact encoded bytes, numerical crops and fixed-query reuse. It does
 not run the HDF5 timing reader or claim a formal GRIB FS/IoTDB-FS comparison.
 
@@ -210,9 +210,9 @@ Accepted source identities, environment and smoke reports are placed in
 payloads remain under the server `work/` tree. Reports should distinguish
 dependency/build acceptance, preparation smoke, and a formal Q=1/10/100 run.
 
-- [Preparation acceptance, 2026-10-12](results/preparation-20261012/RESULTS.md)
-- [Three paired Q=1/10/100 campaigns, 2026-10-12](results/q100-20261012/RESULTS.md)
-- [Reopen versus bind-once paired campaigns, 2026-10-12](results/session-q100-20261012/RESULTS.md)
+- Preparation acceptance, 2026-10-12 (local archive: `experiments/single_file/results/preparation-20261012/RESULTS.md`)
+- Three paired Q=1/10/100 campaigns, 2026-10-12 (local archive: `experiments/single_file/results/q100-20261012/RESULTS.md`)
+- Reopen versus bind-once paired campaigns, 2026-10-12 (local archive: `experiments/single_file/results/session-q100-20261012/RESULTS.md`)
 
 The formal campaign passed all correctness checks with 2,700 queries per arm;
 none of the nine cases met the <10x paired median query latency target. The
@@ -300,7 +300,7 @@ python3 experiments/single_file/grib_native_validation.py \
 The validation environment needs NumPy and PyArrow (the existing offline/IPC
 venv suffices). macOS may need `DYLD_FALLBACK_LIBRARY_PATH` set to its ecCodes
 library directory for the ctypes oracle. Accepted evidence and the exact
-server library identity are in [GRIB native reader acceptance](results/grib-native-20261012/RESULTS.md).
+server library identity are in GRIB native reader acceptance (local archive: `experiments/single_file/results/grib-native-20261012/RESULTS.md`).
 This acceptance does not constitute the paired GRIB FS/IoTDB-FS benchmark.
 
 On Linux, `grib_native_environment.py --probe <binary> --daemon-environment
@@ -364,12 +364,12 @@ claims about database physical disk bytes. `grib_paired_summary.py` validates
 every actual Q, session closure, oracle and lifecycle total before producing
 aggregate reports. Partial campaigns stay in ignored `work/`.
 
-The accepted [three-campaign GRIB results](results/grib-paired-q100-20261012/RESULTS.md)
-and [interpretation](results/grib-paired-q100-20261012/INTERPRETATION.md) preserve
+The accepted three-campaign GRIB results (local archive: `experiments/single_file/results/grib-paired-q100-20261012/RESULTS.md`)
+and interpretation (local archive: `experiments/single_file/results/grib-paired-q100-20261012/INTERPRETATION.md`) preserve
 all 3,996 reads per arm. They distinguish repeated message-discovery benefits
 from faster bound FS reads and the persistent-index publication cost.
 
-The subsequent [BinaryView cache acceptance](results/grib-binary-cache-20261012/RESULTS.md)
+The subsequent BinaryView cache acceptance (local archive: `experiments/single_file/results/grib-binary-cache-20261012/RESULTS.md`)
 pairs the original daemon with a rebuilt daemon on the same existing exact
 versions, without publishing sources again. Three campaigns cover both size
 tiers and ordinary/bound modes, 100 reads per session: 2,400 total observations.
@@ -382,7 +382,7 @@ multi-source logical-budget enforcement even for encoded cache hits.
 
 ## Cross-format timing audit
 
-[HDF5 / GRIB comparison matrices](results/cross-format-audit-20261012/RESULTS.md)
+HDF5 / GRIB comparison matrices (local archive: `experiments/single_file/results/cross-format-audit-20261012/RESULTS.md`)
 recompute all accepted raw records, including historical HDF5, without rerunning
 queries. The primary HDF5 bind-once and GRIB paired campaigns use the same daemon
 binary. Warm medians are standardized to pooled post-first Q=100 observations;

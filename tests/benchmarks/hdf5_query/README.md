@@ -72,7 +72,7 @@ IoTDB-FS result. Run with `HDF5_DRIVER`, `HDF5_VOL_CONNECTOR` and `HDF5_PLUGIN_P
 The probe uses the default FAPL and opens trusted local files; H02 must provide the
 restricted source-backed VFD and full metadata/read budgeting.
 
-See [H00 results and limitations](../../../docs/reports/hdf5-query-spikes.md).
+See H00 results and limitations (local archive: `docs/reports/hdf5-query-spikes.md`).
 
 For the warm native-library concurrency diagnostic (same total reads, 3 trials
 at each of 1/2/4 threads), the standalone project also builds:
@@ -418,7 +418,7 @@ See [H10 measurement contract](../../../docs/knowledge/hdf5-query-profile.md).
 
 ## H11 controlled A–E benchmark
 
-[Protocol and interpretation](../../../docs/reports/hdf5-query-benchmark.md) define the
+Protocol and interpretation (local archive: `docs/reports/hdf5-query-benchmark.md`) define the
 HDF5-specific A–E mapping, owned-array timing, repeated campaigns, cache budgets,
 and limitations. Build `h11_query_probe` from the root test-enabled build. Python
 uses the existing h5py/NumPy environment plus PyArrow for E.
@@ -465,7 +465,7 @@ all `expected_runs` and treats campaign warm means as independent observations.
 
 ## Scientific catalog and OISST A–E timing
 
-The [matched workload contract](../../../docs/reports/hdf5-scientific-query-benchmark.md)
+The matched workload contract (local archive: `docs/reports/hdf5-scientific-query-benchmark.md`)
 uses seven unchanged NOAA OISST daily netCDF-4/HDF5 files. Build the opt-in
 `sc_perf_native` and `sc_perf_direct` targets in a test-enabled root build. An
 existing isolated `h09probe...` database and its writer lock are required; the
@@ -494,7 +494,7 @@ catalog construction are separate setup costs.
 
 ## GEOS pressure-coordinate production acceptance
 
-The [two-time GEOS report](../../../docs/reports/hdf5-geos-production-multitime.md)
+The two-time GEOS report (local archive: `docs/reports/hdf5-geos-production-multitime.md`)
 uses `geos_pilot.py --passes 0` to publish two public `inst3_3d_asm_Np`
 files through the production mount and record their exact source versions.
 `geos_multitime_semantic.py --pilot-dir <published-pilot> --daemon <iotdb_fs>

@@ -12,7 +12,7 @@ uses ecCodes bitmap/missing-value handling. General HDF5 scientific-role mapping
 Arrow adaptation and arbitrary-sized output are not implemented by this component.
 The separate v2 maintenance interface adds incremental publication and reader
 refresh for this same bounded profile; its implementation scope is specified in the
-[incremental-maintenance plan](../docs/deliverables/fs-index-incremental-maintenance-plan.md).
+incremental-maintenance plan (local archive: `docs/deliverables/fs-index-incremental-maintenance-plan.md`).
 
 ## Build and verify
 

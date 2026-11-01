@@ -2,7 +2,7 @@
 
 > 文档整理：标为“服务器归档”的引用按本次清单不再作为 Git 文档保留，查验路径见 [文档归档说明](../README.md#服务器归档)。
 
-日期：2026-09-27。主机：`root@192.168.99.49`。对应 [公开训练基线计划](../deliverables/public-training-baseline-plan.md) 的 PB00 环境部分；磁盘选址和准备前状态见 分区核查（服务器归档：`docs/public-training-environment-readiness.md`）。本记录只证明公开 ETTm1 上的最小训练闭环可运行，不表示 Arrow reader、IoTDB-FS 查询、完整训练或性能基线已完成。
+日期：2026-09-27。主机：`root@192.168.99.49`。对应 公开训练基线计划 (local archive: `docs/deliverables/public-training-baseline-plan.md`) 的 PB00 环境部分；磁盘选址和准备前状态见 分区核查（服务器归档：`docs/public-training-environment-readiness.md`）。本记录只证明公开 ETTm1 上的最小训练闭环可运行，不表示 Arrow reader、IoTDB-FS 查询、完整训练或性能基线已完成。
 
 ## 位置与隔离
 

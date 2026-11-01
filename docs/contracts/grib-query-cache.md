@@ -143,4 +143,4 @@ hashes、content_hits、evictions，以及结束时的 resident_bytes/entries、
 事件计数与驻留 gauge 应分别解释；BinaryView／MessageRows 不增加该 native 计数管理。
 
 接入公共热域之前的基线与FS-index对照见
-[2026-10-20性能检查](../reports/grib-current-cache-performance-20261020.md)。
+2026-10-20性能检查 (local archive: `docs/reports/grib-current-cache-performance-20261020.md`)。

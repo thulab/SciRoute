@@ -28,7 +28,7 @@
 - C++17；FUSE、ecCodes、定制 IoTDB SDK、Arrow、HDF5 的版本和配置见 CMake 及 [CI 依赖说明](ci/README.md)。先核对平台／依赖；缺失时报告阻塞并继续静态检查，不替换锁定依赖。
 - 依赖就绪后：`cmake -S . -B build -DIOTDB_ROOT=/实际/client/目录`，再 `cmake --build build --target iotdb_fs iotdb_fs_web`。复用匹配的构建目录，避免无故清理／重装。
 - 单元测试已注册 CTest：配置 `-DBUILD_TESTS=ON -DENABLE_FUSE_INTEGRATION_TESTS=OFF`，构建 `unit_tests`；运行相关 GTest filter 或 `ctest --test-dir <构建目录> -L unit --output-on-failure`。详见 [单元测试](tests/unit/README.md)；只构建单元目标时不要跑未筛选 CTest。
-- 真实 IoTDB／FUSE 按 [集成测试](tests/integration/README.md)使用独立数据库和目录，先核对实例、挂载点及副作用。`Test.md` 仅为历史人工记录。
+- 真实 IoTDB／FUSE 按 [集成测试](tests/integration/README.md)使用独立数据库和目录，先核对实例、挂载点及副作用。历史人工记录 `Test.md` 仅保留本地，不随公开仓库分发。
 - 构建、功能与性能结论分别表述；未执行的检查明确标注，提示词调整不等于已测得的效率收益。
 
 ## 固定实验组

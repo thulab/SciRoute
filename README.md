@@ -140,7 +140,7 @@ tests/               Unit, integration, and performance tests
 experiments/         Workload definitions and experiment drivers
 ci/                  Dependency installation and test tooling
 packaging/           Release packaging and runtime tooling
-docs/                Contracts, manuals, plans, and reports
+docs/                Current contracts, manuals, and frozen experiment protocol
 ```
 
 ## Contributing and license

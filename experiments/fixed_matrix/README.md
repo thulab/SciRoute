@@ -70,6 +70,6 @@ PINNED_PYTHON -m experiments.fixed_matrix.hdf5_filesystem \
 
 只接受完整16个HDF5首轮case，三campaign、每臂2预热＋10测量，共1,728次；18扩展和GRIB不执行。先验证全部原始语料、SQLite索引、oracle、当前绑定与产品SHA；已绑定的N8/N128从已验收的`owner-active`复制当前journal并沿用原受管文件根，其他5份从原归档journal复制独立当前journal、显式增加文件定位。以后须使用新收据中的当前journal，不能重新复制旧发布head。查询只读，补绑定不是重新发布科学数据。原72条小探针单独保留，不拼入正式三轮。`--prepare-only`只做离线门禁，不进入服务维护。采样、原服务／资源恢复和完整1728条门禁全部通过后才能填完整主表或标粗最佳组。
 
-该首次FS通路复测已于2026-10-22完整验收，目录`work/hdf5-native-matrix-20261021/collection-r1/`，本地白名单副本为同work下`evidence/`。16组中位R为7.031–10.164，未显示优于FS-index；完整结果及真实启动成本见[HDF5统一报告](../../docs/reports/hdf5-route3.md#native-filesystem)。后续重复仍使用同一case与`current-locations.json`中的当前journal／受管根建立新run；不能直接再次调用首次补绑定流程，把5份已扩展namespace当作原发布head打开。
+该首次FS通路复测已于2026-10-22完整验收，目录`work/hdf5-native-matrix-20261021/collection-r1/`，本地白名单副本为同work下`evidence/`。16组中位R为7.031–10.164，未显示优于FS-index；完整结果及真实启动成本见HDF5统一报告 (local archive: `docs/reports/hdf5-route3.md`)。后续重复仍使用同一case与`current-locations.json`中的当前journal／受管根建立新run；不能直接再次调用首次补绑定流程，把5份已扩展namespace当作原发布head打开。
 
-原生会话缓存×批量取值消融已于2026-10-22完成，`work/hdf5-cache-batch-20261022/collection-r1/`含864条正式记录，另`smoke-r1/`96条不拼入统计；本地`evidence/`含白名单副本及独立统计／资源验收。C0B0／C1B0／C0B1／C1B1同一产品，N8／独立N128合用R改善，V8缓存无稳定额外收益并保持关闭；绝对时间漂移及全部block范围见[统一报告](../../docs/reports/hdf5-route3.md#native-cache-batch)。复测必须建立新run并沿用同一case、当前journal／根与完整资源门禁，不重建或覆盖本轮目录。
+原生会话缓存×批量取值消融已于2026-10-22完成，`work/hdf5-cache-batch-20261022/collection-r1/`含864条正式记录，另`smoke-r1/`96条不拼入统计；本地`evidence/`含白名单副本及独立统计／资源验收。C0B0／C1B0／C0B1／C1B1同一产品，N8／独立N128合用R改善，V8缓存无稳定额外收益并保持关闭；绝对时间漂移及全部block范围见统一报告 (local archive: `docs/reports/hdf5-route3.md`)。复测必须建立新run并沿用同一case、当前journal／根与完整资源门禁，不重建或覆盖本轮目录。

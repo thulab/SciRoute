@@ -2,7 +2,7 @@
 
 > 当前依赖（2026-10-12）：HDF5 C 库统一要求 **1.14.4 EXACT**，shared／serial／thread-safe／DEFLATE；官方维护归档为 `1.14.4-3`。安装与校验见 [CI 依赖说明](../../ci/README.md)。下文阶段验收中的 1.14.6 为历史实测版本，未改写其证据或声称在 1.14.4 下重跑。
 
-> 2026-10-06 扩展：当前写入协议为 layout `/5`；新增 GEOS 压力轴证据，旧 `/4` 保留物理查询但不提供压力语义。下述 H03–H11 记录保留其当时版本；现行操作见 [dataset 发现与 CF 查询](hdf5-dataset-discovery.md)及 [GEOS 生产多时次验收](../reports/hdf5-geos-production-multitime.md)。
+> 2026-10-06 扩展：当前写入协议为 layout `/5`；新增 GEOS 压力轴证据，旧 `/4` 保留物理查询但不提供压力语义。下述 H03–H11 记录保留其当时版本；现行操作见 [dataset 发现与 CF 查询](hdf5-dataset-discovery.md)及 GEOS 生产多时次验收 (local archive: `docs/reports/hdf5-geos-production-multitime.md`)。
 
 H07 在物理 dataset／ordinal 查询之上增加独立的对象属性目录和显式 GWOSC
 GPS 秒绑定。摄取阶段建立证据，查询阶段只读取持久化 layout；不扫描坐标数组，

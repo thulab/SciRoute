@@ -1,6 +1,6 @@
 # Prepared training registration
 
-2026-09-30。目标是让标准随机采样的 minibatch 复用已准备的 snapshot、coverage index、view 和训练 module，并避免每次发送完整声明。用户已批准该协议；现已实现准备对象、按 ID 执行与规范化通道表。实验记录见 [三组消融](../reports/public-training-prepared-registration-20260930.md)。
+2026-09-30。目标是让标准随机采样的 minibatch 复用已准备的 snapshot、coverage index、view 和训练 module，并避免每次发送完整声明。用户已批准该协议；现已实现准备对象、按 ID 执行与规范化通道表。实验记录见 三组消融 (local archive: `docs/reports/public-training-prepared-registration-20260930.md`)。
 
 ## 控制接口
 

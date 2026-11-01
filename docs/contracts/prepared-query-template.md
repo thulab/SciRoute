@@ -1,6 +1,6 @@
 # 公共不可变 typed 请求模板
 
-Stage A；协议版本由当前 daemon 定义。模板保存静态声明，不保存 `PreparedQuery`、权限证明、源能力、账本或结果。设计依据为 [公共 q 复用方案](../deliverables/public-q-request-plan-reuse-plan-20261024.md)。
+Stage A；协议版本由当前 daemon 定义。模板保存静态声明，不保存 `PreparedQuery`、权限证明、源能力、账本或结果。设计依据为 公共 q 复用方案 (local archive: `docs/deliverables/public-q-request-plan-reuse-plan-20261024.md`)。
 
 ## 协议
 

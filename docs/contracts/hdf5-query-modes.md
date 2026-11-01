@@ -59,13 +59,13 @@ iotdb_fs native-file-bind --subtree /science
 
 `IOTDBFS_EXPERIMENT_FROZEN_TYPED` 启动环境变量与 `experiment_typed_bind/read/release` socket 请求也已移除，旧请求拒绝执行。普通 typed、Arrow prepared window、授权发布和结果生命周期继续保留。
 
-2026-10-19及FM1首轮中的同名 native 模式使用旧数据库 VFD；这些历史结果不代表当前 FS 数据通路，见[总报告](../reports/hdf5-route3.md#modes)。完整性能结论必须来自同一固定 case 的新 run，不能把历史较快 indexed 结果当作原生基线。实现边界及性能判据见[数据通路方案](../deliverables/hdf5-native-filesystem-plan.md)。
+2026-10-19及FM1首轮中的同名 native 模式使用旧数据库 VFD；这些历史结果不代表当前 FS 数据通路，见总报告 (local archive: `docs/reports/hdf5-route3.md`)。完整性能结论必须来自同一固定 case 的新 run，不能把历史较快 indexed 结果当作原生基线。实现边界及性能判据见数据通路方案 (local archive: `docs/deliverables/hdf5-native-filesystem-plan.md`)。
 
-2026-10-22新增可选`query.hdf5.native_cache=true|false`，默认false；仅影响native原生会话复用，不改变默认查询模式。开启后同一挂载的Adapter共用最多8个file／8个dataset、64 MiB计费池，metadata每file上限2 MiB、raw chunk每dataset 256 KiB；关闭保留原8 MiB／raw 0的一次性通路。原生句柄仅在相同完整head、精确内容／文件身份和选择／slab工作流下复用。空闲池不保存请求授权／取消／账本；每次租用重新绑定，缓存命中仍校验文件并逐范围重放逻辑需求，实际VFD读取单列。该实现及三组2×2消融已完成验收，K2合用改善，K16缓存无稳定额外收益；默认false及原默认引擎保持。详见[统一报告](../reports/hdf5-route3.md#native-cache-batch)，此前无会话池的正式结果不改标为缓存结果。
+2026-10-22新增可选`query.hdf5.native_cache=true|false`，默认false；仅影响native原生会话复用，不改变默认查询模式。开启后同一挂载的Adapter共用最多8个file／8个dataset、64 MiB计费池，metadata每file上限2 MiB、raw chunk每dataset 256 KiB；关闭保留原8 MiB／raw 0的一次性通路。原生句柄仅在相同完整head、精确内容／文件身份和选择／slab工作流下复用。空闲池不保存请求授权／取消／账本；每次租用重新绑定，缓存命中仍校验文件并逐范围重放逻辑需求，实际VFD读取单列。该实现及三组2×2消融已完成验收，K2合用改善，K16缓存无稳定额外收益；默认false及原默认引擎保持。详见统一报告 (local archive: `docs/reports/hdf5-route3.md`)，此前无会话池的正式结果不改标为缓存结果。
 
 新增格式中立`typed_batch`控制入口，最多64个已有typed请求，要求Exact路径和版本，返回稳定索引及逐项结果路径。整批共享累计预算，逐项保留执行／发布／新open准入，失败撤销本批结果路由和pin；正常有界内容缓存可按原策略回收不可达共享结果。首版顺序执行，每项Arrow输出与客户端owned数组契约不变，不等同于一个Arrow流或客户端直接H5Dread。
 
-当前FS通路已完成原16个HDF5首轮case的正式三轮1,728条验收；先行N8/N128单轮72条不拼入正式统计。完整case、R/Rd/Rq、实际资源及钟外绑定／启动成本见[总报告的新通路结果](../reports/hdf5-route3.md#native-filesystem)。后续使用`work/hdf5-native-matrix-20261021/collection-r1/current-locations.json`中的当前journal与受管根，原发布journal只读归档。
+当前FS通路已完成原16个HDF5首轮case的正式三轮1,728条验收；先行N8/N128单轮72条不拼入正式统计。完整case、R/Rd/Rq、实际资源及钟外绑定／启动成本见总报告的新通路结果 (local archive: `docs/reports/hdf5-route3.md`)。后续使用`work/hdf5-native-matrix-20261021/collection-r1/current-locations.json`中的当前journal与受管根，原发布journal只读归档。
 
 2026-10-26 的进程内 Native 读取优化保留原 `H5Dread`：chunked dataset 的 slab 切分在原 row／byte／输出预算内向下对齐 chunk 边界，非对齐 ROI 使用绝对 chunk 边界；边界无法在上限内容纳时仍按原受限大小切分。不会扩大 ROI、改变 C 顺序或增加单批内存额度；批边界与 IPC 分批数可变，不属于固定输出契约。连续布局及 Indexed 切分不变。受管 VFD 继续逐次检查原版本／文件能力、取消和实际读取累计范围／字节预算，无新增跨请求数据缓存。
 
@@ -73,6 +73,6 @@ iotdb_fs native-file-bind --subtree /science
 
 ## 历史实验
 
-2026-10-26 的 Native HDF5 有界进程后端已根据[规模探针](../reports/hdf5-native-indexed-scale-probe-20261026.md)撤回，当前 Native 查询使用进程内执行与既有资源感知排队。`query.hdf5.native_processes` 和专用 helper 不再属于当前配置／构建；旧配置包含该键（包括值0或空值）会在连接数据库及挂载前明确拒绝，需删除该键。当时的[进程池契约](hdf5-native-process-pool.md)、源码快照和实验结果保留用于复核。
+2026-10-26 的 Native HDF5 有界进程后端已根据规模探针 (local archive: `docs/reports/hdf5-native-indexed-scale-probe-20261026.md`)撤回，当前 Native 查询使用进程内执行与既有资源感知排队。`query.hdf5.native_processes` 和专用 helper 不再属于当前配置／构建；旧配置包含该键（包括值0或空值）会在连接数据库及挂载前明确拒绝，需删除该键。当时的[进程池契约](hdf5-native-process-pool.md)、源码快照和实验结果保留用于复核。
 
-`cross_version` 的 FS-scan、FS-index、catalog-native-local、catalog-native-fuse、typed 五个 arm 是基线与原型对照，不是五种产品模式；`multi_file` 的历史三 arm 结果也保持原口径。原始 runner、源码快照和结果不重写。历史 catalog strict 探针和 frozen-typed 用例从正式构建移到 [归档索引](../../experiments/legacy/README.md)。H01/H08 等阶段契约描述其当时的实现；本页定义当前模式边界。
+`cross_version` 的 FS-scan、FS-index、catalog-native-local、catalog-native-fuse、typed 五个 arm 是基线与原型对照，不是五种产品模式；`multi_file` 的历史三 arm 结果也保持原口径。原始 runner、源码快照和结果不重写。历史 catalog strict 探针和 frozen-typed 用例从正式构建移到 归档索引 (local archive: `experiments/legacy/README.md`)。H01/H08 等阶段契约描述其当时的实现；本页定义当前模式边界。

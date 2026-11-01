@@ -92,5 +92,5 @@ follow-up. FS-index may retain eight native HDF5 file/dataset sessions through
 and perform a fresh native value read. HDF5 chunk-cache state survives with the
 handles. The two reopening controls are measured in the same follow-up. Managed
 execution remains the original `iotdb-indexed` campaign. See the
-[completed report](../../docs/reports/fs-index-hdf5-handles-20261031.md) for direct
+completed report (local archive: `docs/reports/fs-index-hdf5-handles-20261031.md`) for direct
 clocks, first/close timing, source identities and restoration evidence.

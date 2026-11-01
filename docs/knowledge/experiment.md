@@ -1,6 +1,6 @@
 # H1–H3 科学数据格式候选实验方案
 
-研究对象是当前 IoTDB-FS-C 的 GRIB message 级布局与三个候选扩展格式。本文档是可执行 protocol；截至 2026-10-06，HDF5 Adapter 已支持 OISST 的属性目录与 CF 科学查询，并完成[七天同条件性能实验](../reports/hdf5-scientific-query-benchmark.md)。mzML 和 SEG-Y 适配器尚未实现。
+研究对象是当前 IoTDB-FS-C 的 GRIB message 级布局与三个候选扩展格式。本文档是可执行 protocol；截至 2026-10-06，HDF5 Adapter 已支持 OISST 的属性目录与 CF 科学查询，并完成七天同条件性能实验 (local archive: `docs/reports/hdf5-scientific-query-benchmark.md`)。mzML 和 SEG-Y 适配器尚未实现。
 
 配套综述见 [scientific-format-candidates-h1-h3-2026-09-30.md](../scientific-format-candidates-h1-h3-2026-09-30.md)。综述中的 C1–C8 是仓库源码证据，R1–R22 是在线来源。本文档只把已核验的事实写成“已知”，把需要下载后检查的属性写成“待测”。
 
@@ -28,7 +28,7 @@ FITS 图像可作为替代第三候选；它只有在能取得实际大块或整
 - 该单日文件只能证明“一个逻辑点可能落在整幅空间 chunk 中”的 H1 机制，不能单独证明端到端加速；长时间序列需要下载同一产品的多日文件并现场记录每个文件的 chunk、过滤器、变量和维度。
 
 2024-01-01 至 2024-01-07 七个连续原始文件已经用于 A–E 与跨文件属性目录对照；
-结果见[独立性能报告](../reports/hdf5-scientific-query-benchmark.md)。七天结果仍不能外推到
+结果见独立性能报告 (local archive: `docs/reports/hdf5-scientific-query-benchmark.md`)。七天结果仍不能外推到
 365 天或不同 chunk 布局。
 
 **已确认的 MERRA-2 入口元数据**：

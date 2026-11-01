@@ -57,7 +57,7 @@ GRIB typed 查询 -> 原有 message 取数路径
 
 `WindowAssembler::prepare_lookahead` 先收集窗口组的规范 tile 需求；整组超过准入上限时按窗口及 tile 波次执行，并在最后一次使用后释放 lease。`ArrowFragmentProvider::get_batch` 与标量 `get` 共用 key、decoder 和 cache；`DecodedFragmentCache::get_batch` 在同一同步边界认领缺失 key，组结果完整验证后发布。`QuerySource`/`StructuredBlobReadHandle` 对范围数、总字节数及 payload 边界做校验，IoTDB backend 在一条查询中执行多个 `READ_OBJECT`。首版上限为每次 64 个物理范围、8 MiB 返回数据。压缩的整个物理 buffer 沿用原标量片段路径。请求仍逐窗口计逻辑预算，取消、失败与并发等待覆盖在回归测试中。
 
-完整 CTest **952/952** 通过，真实 IoTDB 已验证不连续多范围的一次请求。仅 Electricity 的[50-step A/B 记录](../reports/public-training-electricity-tilebatch-20260929.md)显示，51 个训练查询的 payload 调用从 35,671 降到 571；返回字节和解码次数只各降低约 5%。这符合标准随机窗口很少重叠、默认 cache entry 容量仍不足的边界。尚未把 cache-only、无范围合并、跨请求预取等方案单独消融，也未宣称完整 A13 性能门通过。
+完整 CTest **952/952** 通过，真实 IoTDB 已验证不连续多范围的一次请求。仅 Electricity 的50-step A/B 记录 (local archive: `docs/reports/public-training-electricity-tilebatch-20260929.md`)显示，51 个训练查询的 payload 调用从 35,671 降到 571；返回字节和解码次数只各降低约 5%。这符合标准随机窗口很少重叠、默认 cache entry 容量仍不足的边界。尚未把 cache-only、无范围合并、跨请求预取等方案单独消融，也未宣称完整 A13 性能门通过。
 
 ## 有界并行与挂载缓存容量（2026-09-30）
 
@@ -69,4 +69,4 @@ GRIB typed 查询 -> 原有 message 取数路径
 
 回归测试覆盖真实 1/2/4 路源读取、values/mask/sample ID/provenance 等价、暖缓存、低容量串行回退、请求预算、取消与失败后重试。50-step 消融由 `run_cache_parallel_ablation.py` 固定 sampler、source/version 与输出校验执行。
 
-[两轮实测记录](../reports/public-training-cache-parallel-20260930.md)：955 个 C++ 测试通过，32 次 B 运行均保持 A/B 正确性。扩容将训练冷读解码从 33,889 降到 6,660；4 路并行将已扩容后的预取 wall 从均值 2.533 s 降到 1.285 s。完整 50-step 墙钟较小缓存串行降低约 41%，暖缓存仍有约 14 s 的准备/组装/传输和训练开销。
+两轮实测记录 (local archive: `docs/reports/public-training-cache-parallel-20260930.md`)：955 个 C++ 测试通过，32 次 B 运行均保持 A/B 正确性。扩容将训练冷读解码从 33,889 降到 6,660；4 路并行将已扩容后的预取 wall 从均值 2.533 s 降到 1.285 s。完整 50-step 墙钟较小缓存串行降低约 41%，暖缓存仍有约 14 s 的准备/组装/传输和训练开销。

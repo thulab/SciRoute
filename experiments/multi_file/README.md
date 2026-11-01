@@ -2,11 +2,11 @@
 
 > 正式性能采集统一使用 [FM1 固定矩阵](../fixed_matrix/README.md)。历史数据保留追溯，不作为新基线；后续优化复用已封印 corpus/case，新增实验组先确认并登记。
 
-> 当前正式代码仅提供 [`native-hdf5` / `iotdb-indexed`](../../docs/contracts/hdf5-query-modes.md)。本目录历史 runner、arm 和计时结果保留当时口径；含旧 catalog 设置或 frozen-typed 请求的 runner 必须配合其冻结二进制运行，不能直接用于当前二进制。归档说明见 [legacy](../legacy/README.md)。
+> 当前正式代码仅提供 [`native-hdf5` / `iotdb-indexed`](../../docs/contracts/hdf5-query-modes.md)。本目录历史 runner、arm 和计时结果保留当时口径；含旧 catalog 设置或 frozen-typed 请求的 runner 必须配合其冻结二进制运行，不能直接用于当前二进制。归档说明见 legacy (local archive: `experiments/legacy/README.md`)。
 
 `manager.py` prepares and verifies raw experimental corpora independently of
 IoTDB ingestion and online query timing. HDF5 and GRIB use the same explicit
-N/K/D/depth contract. The initial [feasibility audit](feasibility-20261013/README.md)
+N/K/D/depth contract. The initial feasibility audit (local archive: `experiments/multi_file/feasibility-20261013/README.md`)
 records the existing public sources and why regrouping alone cannot supply
 all independent gradients.
 
@@ -455,14 +455,14 @@ binds observations to the actual 33667 DataNode, inventories old client sockets
 and background jobs, and records read-only SHOW/EXPLAIN diagnostics. It does
 not restart services, mutate database contents, or replace benchmark results.
 
-The [HDF5/GRIB cost-structure audit](../../docs/knowledge/hdf5-grib-query-cost-structure-audit-20261014.md)
+The HDF5/GRIB cost-structure audit (local archive: `docs/knowledge/hdf5-grib-query-cost-structure-audit-20261014.md`)
 uses those existing reports and plans without another timing run. It separates
 SQL allocation, secondary-index integrity/filter execution, value-request
 grouping, and physical assembly, including limits of cross-format decode counters.
 
 ### Sealed HDF5 substructure-index N=128 validation (2026-10-15)
 
-The [measured report](../../docs/reports/hdf5-substructure-index-n128-20261015.md)
+The measured report (local archive: `docs/reports/hdf5-substructure-index-n128-20261015.md`)
 uses the same frozen runner, native reader, raw corpus and N/K/D/depth controls.
 New sealed source versions were published because legacy unsealed versions cannot
 use the new mode. Strict and substructure-index query the same new exact versions;
@@ -472,7 +472,7 @@ runner or alter query grouping. Publication and relocated FS index construction
 are reported separately. Complete raw reports and failed preparation records live
 under `work/hdf5-substructure-n128-20261015/` on the experiment server.
 
-The subsequent [predicate-precompilation ablation](../../docs/reports/hdf5-predicate-precompile-ablation-20261015.md)
+The subsequent predicate-precompilation ablation (local archive: `docs/reports/hdf5-predicate-precompile-ablation-20261015.md`)
 fixes the best-A threshold at 121.067539 ms and reuses those same sealed source
 versions and FS indexes. An initial incomplete attempt exposed the frozen
 runner's asynchronous profile-collection race. The user approved only the
