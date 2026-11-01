@@ -1,0 +1,21 @@
+{
+  "paper_revision": "047a5624449639c441dda3403029b26ec6cd6f6d",
+  "scope": "Offline reanalysis of the accepted single collection campaign; not a new execution of the query systems.",
+  "raw_archive_sha256": "b5af39c8a520ce3dd6bb66db657b247831d160af70e7fcadf90c4cf2cba4df05",
+  "raw_archive_included": false,
+  "projection_records": 1920,
+  "measurement_records": 1600,
+  "cells": 64,
+  "files": [
+    {
+      "path": "data/collection-query-timings.csv",
+      "source_path": "experiments/dispersion-20261101/collection-query-timings.csv",
+      "sha256": "1911f0e51c3164486f6c379ab7c1e035d6e59541a39cef4ff19276981003ef13"
+    },
+    {
+      "path": "data/query-summary.csv",
+      "source_path": "experiments/cross-file-20261028/query-summary.csv",
+      "sha256": "1bf4ed1ef5c1279e3c3f411ad779222e093a95549992c5367bf00d9b8ed601be"
+    }
+  ]
+}

@@ -4,6 +4,20 @@
 
 [English](README.md) | **简体中文**
 
+## 可复现性入口
+
+使用 **Python 3.10+**，在仓库根目录运行：
+
+```bash
+python3 reproduce.py
+```
+
+默认仅需标准库、离线执行：验证目录／句柄 fixture，并从随仓库提供的历史计时记录重算
+全部 64 个集合配置及 245×／109× 结果。脚本输出 JSON 报告路径；这**不是重新运行
+IoTDB-FS 性能实验**。[原生测试、可选绘图、预期输出与 VLDB 核查](reproducibility/README.md)。
+完整论文复现仍有[外部材料缺口](reproducibility/README.md#paper-experiments-and-remaining-external-materials)。
+
+
 SciRoute 通过可复用的**语义访问路径（semantic access paths）**统一科学选择与发布版本选择。**Structured Blob** 将科学与结构元数据、原生布局和原始编码内容关联到精确的发布文件版本；复用元数据与定位信息，在保持科学解释和来源身份的同时减少重复发现。
 
 仓库包含两条执行路径：**FS-index** 提供独立索引和原生读取；**IoTDB-FS** 提供基于 IoTDB 的受管文件系统与查询运行时。本项目对应研究论文 *SciRoute: From Scientific Queries to Native File Access*。构建目标与运行时仍沿用 IoTDB-FS 名称。
@@ -139,7 +153,7 @@ fusermount -u /path/to/mount
 
 ## 复现论文实验
 
-**当前材料范围：**仓库提供实现源码、依赖锁、功能测试和保留的实验驱动，**尚不是复现全部论文数值的自包含归档**。定制 SDK／服务端、完整数据与转换输入、已接受的科学映射，以及部分冻结控制器和原始结果包仍是外部前置材料。旧协议中的本地路径与历史报告名称不能当作公开下载入口。
+**当前材料范围：**仓库提供实现源码、依赖锁、功能测试和保留的实验驱动，**尚不是复现全部论文数值的自包含归档**。定制 SDK／服务端、完整数据与转换输入、已接受的科学映射，以及部分冻结控制器和原始结果包仍是外部前置材料。集合计时投影及离线重算入口现已随 [reproducibility/](reproducibility/README.md) 提供。旧协议中的本地路径与历史报告名称不能当作公开下载入口。
 
 ### 1. 固定实现与环境
 

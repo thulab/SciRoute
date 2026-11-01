@@ -4,6 +4,21 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
+## Start here: reproducibility
+
+With **Python 3.10+**, run from this repository:
+
+```bash
+python3 reproduce.py
+```
+
+Offline, standard-library-only: checks catalog/handle fixtures and recomputes all
+64 collection cells and the 245×/109× headline from bundled archived timings.
+It prints a JSON report path; it does **not** rerun IoTDB-FS performance workloads.
+[Native checks, optional plots, expected outputs and VLDB readiness](reproducibility/README.md).
+The complete paper artifact still has [external-material gaps](reproducibility/README.md#paper-experiments-and-remaining-external-materials).
+
+
 SciRoute unifies scientific selection and publication-version selection through **semantic access paths**. A **Structured Blob** associates scientific and structural metadata, native layout, and original encoded content with an exact published file version. Reusable metadata and locators avoid repeated discovery while preserving the requested interpretation and source.
 
 This repository contains two execution paths: **FS-index**, a standalone index with native readers, and **IoTDB-FS**, a managed filesystem and query runtime backed by IoTDB. It accompanies *SciRoute: From Scientific Queries to Native File Access*. The build targets and runtime retain the IoTDB-FS name.
@@ -139,7 +154,7 @@ For query syntax, deployment, and configuration details, see the [user manual](d
 
 ## Reproducing the paper
 
-**Current artifact scope:** this repository provides implementation source, dependency locks, functional tests, and retained experiment drivers. It is **not yet a self-contained archive for reproducing every paper number**. The custom SDK/server, full data and converted inputs, accepted scientific mappings, and some frozen controller/raw-result bundles are external prerequisites. Local paths and historical report names in older protocols are not public download links.
+**Current artifact scope:** this repository provides implementation source, dependency locks, functional tests, and retained experiment drivers. It is **not yet a self-contained archive for reproducing every paper number**. The custom SDK/server, full data and converted inputs, accepted scientific mappings, and some frozen controller/raw-result bundles are external prerequisites. The collection timing projection and its offline reanalysis are now bundled under [reproducibility/](reproducibility/README.md). Local paths and historical report names in older protocols are not public download links.
 
 ### 1. Pin the implementation and environment
 
